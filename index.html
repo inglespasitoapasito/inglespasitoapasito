@@ -72,6 +72,14 @@
             background-color: var(--primary);
             color: white;
         }
+        .tab-btn.highlight {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .tab-btn.highlight.active, .tab-btn.highlight:hover {
+            background-color: var(--accent);
+            color: white;
+        }
 
         /* Detalle del Curso Seleccionado */
         .course-detail {
@@ -82,11 +90,54 @@
             border-top: 5px solid var(--primary);
             margin-bottom: 3rem;
         }
+        .course-detail.reto-border {
+            border-top: 5px solid var(--accent);
+        }
         .course-detail h3 {
             color: var(--primary);
             margin-bottom: 1rem;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
         }
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+        }
+        .month-card {
+            background-color: #f8f9fa;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            padding: 1.2rem;
+        }
+        .month-card.m1 { border-left-color: var(--primary); }
+        .month-card.m2 { border-left-color: #e65100; }
+        .month-card.m3 { border-left-color: var(--accent); }
+
+        .month-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .month-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .month-card ul li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
+        .month-card ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
         .example-box {
             background-color: #f0f4fc;
             border-left: 4px solid var(--primary);
@@ -186,17 +237,18 @@
 
     <div class="container">
         <!-- Explorador de Cursos -->
-        <h2 class="section-title">Explora Nuestros Cursos y Ejemplos</h2>
+        <h2 class="section-title">Explora Nuestros Programas y Cursos</h2>
         
         <div class="course-tabs">
-            <button class="tab-btn active" onclick="showCourse('basico')">Inglés Básico</button>
-            <button class="tab-btn" onclick="showCourse('intermedio')">Inglés Intermedio</button>
-            <button class="tab-btn" onclick="showCourse('personalizado')">Clases Personalizadas</button>
+            <button class="tab-btn highlight active" onclick="showCourse('reto', event)">🔥 Reto de Habla (90 Días)</button>
+            <button class="tab-btn" onclick="showCourse('basico', event)">Inglés Básico</button>
+            <button class="tab-btn" onclick="showCourse('intermedio', event)">Inglés Intermedio</button>
+            <button class="tab-btn" onclick="showCourse('personalizado', event)">Clases Personalizadas</button>
         </div>
 
         <!-- Detalle de Cursos -->
-        <div id="course-content" class="course-detail">
-            <!-- El contenido interactivo se carga dinámicamente con JS -->
+        <div id="course-content" class="course-detail reto-border">
+            <!-- El contenido interactivo se carga dinámicamente -->
         </div>
 
         <!-- Formulario de Registro de Usuario -->
@@ -225,11 +277,12 @@
                     <input type="tel" id="celular" placeholder="+51 987654321" required>
                 </div>
                 <div class="form-group">
-                    <label for="cursoSelect">Curso a elegir:</label>
+                    <label for="cursoSelect">Curso o Plan a elegir:</label>
                     <select id="cursoSelect" required>
+                        <option value="Reto de Habla (90 Días)">🔥 Reto de Habla - Plan Intensivo 90 Días</option>
                         <option value="Inglés Básico">Inglés Inicial / Básico</option>
                         <option value="Inglés Intermedio">Inglés Intermedio</option>
-                        <option value="Clases Personalizadas">Clases Personalizadas</option>
+                        <option value="Clases Personalizadas">Clases Personalizadas 1 a 1</option>
                     </select>
                 </div>
                 <button type="submit" class="btn-submit">Crear Cuenta y Finalizar Registro</button>
@@ -245,9 +298,47 @@
 
     <script>
         const coursesData = {
+            reto: {
+                title: "🔥 Plan Intensivo: Reto de Habla (90 Días)",
+                description: "Un programa acelerado diseñado para llevarte desde las bases hasta hablar con total soltura en solo 3 meses.",
+                isReto: true,
+                roadmap: [
+                    {
+                        month: "Mes 1: Bases y Confianza",
+                        class: "m1",
+                        points: [
+                            "Presentarte con seguridad",
+                            "Pedir información fácilmente",
+                            "Dominar las frases clave del día a día"
+                        ]
+                    },
+                    {
+                        month: "Mes 2: Fluidez Cotidiana",
+                        class: "m2",
+                        points: [
+                            "Expresar tus gustos e intereses",
+                            "Describir tus rutinas diarias",
+                            "Contar experiencias pasadas",
+                            "Mantener conversaciones fluidas"
+                        ]
+                    },
+                    {
+                        month: "Mes 3: Autonomía y Expresión",
+                        class: "m3",
+                        points: [
+                            "Hablar sobre tus planes a futuro",
+                            "Dar opiniones con argumentos",
+                            "Viajar sin depender de un traductor",
+                            "Lograr soltura y naturalidad"
+                        ]
+                    }
+                ],
+                exampleTitle: "🎯 Resultado Garantizado:",
+                exampleText: "En 90 días lograrás hablar inglés de forma natural sin quedarte en blanco ni traducir mentalmente cada palabra."
+            },
             basico: {
                 title: "Curso: Inglés Inicial / Básico",
-                description: "Ideal para quienes empiezan desde cero. Aprenderás a presentarte, hacer preguntas básicas y construir oraciones de la vida diaria.",
+                description: "Ideal para quienes empiezan desde cero. Aprenderás a presentarte, hacer preguntas básicas y construir oraciones cotidianas.",
                 exampleTitle: "💡 Ejemplo práctico de lo que aprenderás:",
                 exampleText: "<strong>Presentación personal:</strong><br>'Hello! My name is Ana. I am learning English step by step.'<br><em>(¡Hola! Mi nombre es Ana. Estoy aprendiendo inglés pasito a pasito).</em>"
             },
@@ -259,34 +350,72 @@
             },
             personalizado: {
                 title: "Clases Personalizadas 1 a 1",
-                description: "Diseñadas a la medida de tus metas: entrevistas de trabajo, viajes, exámenes o conversación acelerada.",
+                description: "Diseñadas a la medida de tus metas: preparación para entrevistas de trabajo, viajes, exámenes o conversación acelerada.",
                 exampleTitle: "💡 Ejemplo práctico de lo que aprenderás:",
                 exampleText: "<strong>Entrevista laboral / Trabajo:</strong><br>'Could you tell me more about the responsibilities of this position?'<br><em>(¿Podría decirme más sobre las responsabilidades de este puesto?)</em>"
             }
         };
 
-        function showCourse(courseKey) {
+        function showCourse(courseKey, evt) {
             const course = coursesData[courseKey];
             const contentDiv = document.getElementById('course-content');
             
-            // Actualizar clase activa en botones
+            // Actualizar pestaña activa
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            if(evt) evt.target.classList.add('active');
 
-            contentDiv.innerHTML = `
-                <h3>${course.title}</h3>
-                <p>${course.description}</p>
-                <div class="example-box">
-                    <h4>${course.exampleTitle}</h4>
-                    <p>${course.exampleText}</p>
-                </div>
-                <a href="#registro-section" style="display:inline-block; background-color: var(--primary); color: white; padding: 0.6rem 1.2rem; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 0.5rem;">Inscribirme en este curso ↓</a>
-            `;
+            if(course.isReto) {
+                contentDiv.className = "course-detail reto-border";
+                let roadmapHTML = '<div class="roadmap-grid">';
+                course.roadmap.forEach(m => {
+                    roadmapHTML += `
+                        <div class="month-card ${m.class}">
+                            <h4>${m.month}</h4>
+                            <ul>
+                                ${m.points.map(p => `<li>${p}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `;
+                });
+                roadmapHTML += '</div>';
+
+                contentDiv.innerHTML = `
+                    <h3>${course.title}</h3>
+                    <p>${course.description}</p>
+                    ${roadmapHTML}
+                    <div class="example-box">
+                        <h4>${course.exampleTitle}</h4>
+                        <p>${course.exampleText}</p>
+                    </div>
+                    <a href="#registro-section" onclick="selectInForm('Reto de Habla (90 Días)')" style="display:inline-block; background-color: var(--accent); color: white; padding: 0.8rem 1.4rem; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 0.5rem;">Unirme al Reto de Habla ↓</a>
+                `;
+            } else {
+                contentDiv.className = "course-detail";
+                contentDiv.innerHTML = `
+                    <h3>${course.title}</h3>
+                    <p>${course.description}</p>
+                    <div class="example-box">
+                        <h4>${course.exampleTitle}</h4>
+                        <p>${course.exampleText}</p>
+                    </div>
+                    <a href="#registro-section" onclick="selectInForm('${course.title}')" style="display:inline-block; background-color: var(--primary); color: white; padding: 0.6rem 1.2rem; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 0.5rem;">Inscribirme en este curso ↓</a>
+                `;
+            }
         }
 
-        // Cargar por defecto el curso básico
-        showCourse('basico');
+        function selectInForm(val) {
+            const select = document.getElementById('cursoSelect');
+            for(let i=0; i<select.options.length; i++) {
+                if(select.options[i].text.includes(val) || select.options[i].value.includes(val)) {
+                    select.selectedIndex = i;
+                    break;
+                }
+            }
+        }
+
+        // Cargar por defecto el Reto de Habla
+        showCourse('reto');
 
         // Procesar Formulario de Registro
         document.getElementById('registerForm').addEventListener('submit', function(e) {
@@ -301,7 +430,7 @@
             document.getElementById('successMessage').style.display = 'block';
 
             // Generar mensaje para confirmar registro vía WhatsApp
-            const mensajeWA = `Hola,%20acabo%20de%20crear%20mi%20cuenta%20en%20la%20página%20web.%0A%0A*Nombre:*%20${encodeURIComponent(nombre)}%0A*Correo:*%20${encodeURIComponent(correo)}%0A*Celular:*%20${encodeURIComponent(celular)}%0A*Curso:*%20${encodeURIComponent(curso)}`;
+            const mensajeWA = `Hola,%20acabo%20de%20crear%20mi%20cuenta%20en%20la%20página%20web.%0A%0A*Nombre:*%20${encodeURIComponent(nombre)}%0A*Correo:*%20${encodeURIComponent(correo)}%0A*Celular:*%20${encodeURIComponent(celular)}%0A*Plan/Curso:*%20${encodeURIComponent(curso)}`;
             
             setTimeout(() => {
                 window.open(`https://wa.me/?text=${mensajeWA}`, '_blank');
