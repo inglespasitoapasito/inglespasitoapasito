@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inglés Pasito a Pasito</title>
+    <title>Inglés Pasito a Pasito - Plataforma de Cursos</title>
     <style>
         :root {
             --primary: #002573;
             --accent: #d91438;
             --light: #f4f6f9;
             --dark: #1a1a1a;
+            --white: #ffffff;
         }
         * {
             box-sizing: border-box;
@@ -24,7 +25,7 @@
         }
         header {
             background-color: var(--primary);
-            color: white;
+            color: var(--white);
             text-align: center;
             padding: 2.5rem 1rem;
             border-bottom: 5px solid var(--accent);
@@ -38,7 +39,7 @@
             opacity: 0.9;
         }
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 2rem auto;
             padding: 0 1rem;
         }
@@ -48,37 +49,63 @@
             margin-bottom: 1.5rem;
             font-size: 1.8rem;
         }
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-        .course-card {
-            background: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+        /* Botones de Selección de Cursos */
+        .course-tabs {
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border-top: 4px solid var(--primary);
-        }
-        .course-card h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        .course-card p {
+            justify-content: center;
+            gap: 10px;
             margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-            color: #555;
+            flex-wrap: wrap;
         }
-        .form-card {
+        .tab-btn {
+            background-color: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Detalle del Curso Seleccionado */
+        .course-detail {
             background: white;
             border-radius: 10px;
             padding: 2rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border-top: 4px solid var(--accent);
+            border-top: 5px solid var(--primary);
+            margin-bottom: 3rem;
+        }
+        .course-detail h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .example-box {
+            background-color: #f0f4fc;
+            border-left: 4px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        .example-box h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Formulario de Registro */
+        .register-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-top: 5px solid var(--accent);
             max-width: 600px;
             margin: 0 auto 3rem auto;
         }
@@ -113,6 +140,20 @@
         .btn-submit:hover {
             background-color: #b0102d;
         }
+
+        /* Mensaje de Confirmación */
+        .alert-success {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            border: 1px solid #c3e6cb;
+            text-align: center;
+        }
+
+        /* Botón flotante de WhatsApp */
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -144,59 +185,127 @@
     </header>
 
     <div class="container">
-        <h2 class="section-title">Nuestros Cursos</h2>
+        <!-- Explorador de Cursos -->
+        <h2 class="section-title">Explora Nuestros Cursos y Ejemplos</h2>
         
-        <div class="courses-grid">
-            <div class="course-card">
-                <h3>Inglés Inicial / Básico</h3>
-                <p>Diseñado para quienes empiezan desde cero. Aprende vocabulario clave, frases cotidianas y bases sólidas de conversación.</p>
-            </div>
-
-            <div class="course-card">
-                <h3>Inglés Intermedio</h3>
-                <p>Refuerza tu fluidez, perfecciona la pronunciación y amplía tu capacidad de comunicación formal e informal.</p>
-            </div>
-
-            <div class="course-card">
-                <h3>Clases Personalizadas</h3>
-                <p>Atención 1 a 1 enfocada en tus objetivos específicos: preparación de exámenes, entrevistas o conversaciones rápidas.</p>
-            </div>
+        <div class="course-tabs">
+            <button class="tab-btn active" onclick="showCourse('basico')">Inglés Básico</button>
+            <button class="tab-btn" onclick="showCourse('intermedio')">Inglés Intermedio</button>
+            <button class="tab-btn" onclick="showCourse('personalizado')">Clases Personalizadas</button>
         </div>
 
-        <!-- Formulario de Inscripción -->
-        <div class="form-card">
-            <h2 class="section-title" style="margin-bottom: 1rem;">Formulario de Inscripción</h2>
-            <form id="enrollForm">
+        <!-- Detalle de Cursos -->
+        <div id="course-content" class="course-detail">
+            <!-- El contenido interactivo se carga dinámicamente con JS -->
+        </div>
+
+        <!-- Formulario de Registro de Usuario -->
+        <div class="register-card" id="registro-section">
+            <h2 class="section-title" style="margin-bottom: 1rem;">Crear Cuenta / Inscribirme</h2>
+            
+            <div id="successMessage" class="alert-success">
+                ¡Cuenta creada con éxito! Tus datos de inscripción han sido registrados.
+            </div>
+
+            <form id="registerForm">
                 <div class="form-group">
                     <label for="nombre">Nombre Completo:</label>
-                    <input type="text" id="nombre" placeholder="Ingresa tu nombre" required>
+                    <input type="text" id="nombre" placeholder="Ej. Ana López" required>
                 </div>
                 <div class="form-group">
-                    <label for="curso">Selecciona el Curso:</label>
-                    <select id="curso" required>
-                        <option value="Inglés Inicial / Básico">Inglés Inicial / Básico</option>
+                    <label for="correo">Correo Electrónico:</label>
+                    <input type="email" id="correo" placeholder="ejemplo@correo.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña para la plataforma:</label>
+                    <input type="password" id="password" placeholder="Crea tu contraseña" required minlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="celular">Número de Celular / WhatsApp:</label>
+                    <input type="tel" id="celular" placeholder="+51 987654321" required>
+                </div>
+                <div class="form-group">
+                    <label for="cursoSelect">Curso a elegir:</label>
+                    <select id="cursoSelect" required>
+                        <option value="Inglés Básico">Inglés Inicial / Básico</option>
                         <option value="Inglés Intermedio">Inglés Intermedio</option>
                         <option value="Clases Personalizadas">Clases Personalizadas</option>
                     </select>
                 </div>
-                <button type="submit" class="btn-submit">Completar Inscripción por WhatsApp</button>
+                <button type="submit" class="btn-submit">Crear Cuenta y Finalizar Registro</button>
             </form>
         </div>
     </div>
 
-    <a href="https://wa.me/?text=Hola,%20me%20gustaría%20recibir%20información%20general%20sobre%20Inglés%20Pasito%20a%20Pasito." target="_blank" class="whatsapp-float">💬 Contactar por WhatsApp</a>
+    <a href="https://wa.me/?text=Hola,%20tengo%20una%20consulta%20sobre%20las%20inscripciones%20en%20Inglés%20Pasito%20a%20Pasito." target="_blank" class="whatsapp-float">💬 Ayuda por WhatsApp</a>
 
     <footer>
         <p>&copy; 2026 Inglés Pasito a Pasito - Todos los derechos reservados.</p>
     </footer>
 
     <script>
-        document.getElementById('enrollForm').addEventListener('submit', function(e) {
+        const coursesData = {
+            basico: {
+                title: "Curso: Inglés Inicial / Básico",
+                description: "Ideal para quienes empiezan desde cero. Aprenderás a presentarte, hacer preguntas básicas y construir oraciones de la vida diaria.",
+                exampleTitle: "💡 Ejemplo práctico de lo que aprenderás:",
+                exampleText: "<strong>Presentación personal:</strong><br>'Hello! My name is Ana. I am learning English step by step.'<br><em>(¡Hola! Mi nombre es Ana. Estoy aprendiendo inglés pasito a pasito).</em>"
+            },
+            intermedio: {
+                title: "Curso: Inglés Intermedio",
+                description: "Enfocado en soltar la lengua, mejorar tu pronunciación y expresarte en pasado, presente y futuro con fluidez.",
+                exampleTitle: "💡 Ejemplo práctico de lo que aprenderás:",
+                exampleText: "<strong>Expresar planes y experiencias:</strong><br>'I have been studying English for three months, and now I can hold a conversation.'<br><em>(He estado estudiando inglés por tres meses y ahora puedo mantener una conversación).</em>"
+            },
+            personalizado: {
+                title: "Clases Personalizadas 1 a 1",
+                description: "Diseñadas a la medida de tus metas: entrevistas de trabajo, viajes, exámenes o conversación acelerada.",
+                exampleTitle: "💡 Ejemplo práctico de lo que aprenderás:",
+                exampleText: "<strong>Entrevista laboral / Trabajo:</strong><br>'Could you tell me more about the responsibilities of this position?'<br><em>(¿Podría decirme más sobre las responsabilidades de este puesto?)</em>"
+            }
+        };
+
+        function showCourse(courseKey) {
+            const course = coursesData[courseKey];
+            const contentDiv = document.getElementById('course-content');
+            
+            // Actualizar clase activa en botones
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            contentDiv.innerHTML = `
+                <h3>${course.title}</h3>
+                <p>${course.description}</p>
+                <div class="example-box">
+                    <h4>${course.exampleTitle}</h4>
+                    <p>${course.exampleText}</p>
+                </div>
+                <a href="#registro-section" style="display:inline-block; background-color: var(--primary); color: white; padding: 0.6rem 1.2rem; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 0.5rem;">Inscribirme en este curso ↓</a>
+            `;
+        }
+
+        // Cargar por defecto el curso básico
+        showCourse('basico');
+
+        // Procesar Formulario de Registro
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            
             const nombre = document.getElementById('nombre').value;
-            const curso = document.getElementById('curso').value;
-            const mensaje = `Hola, mi nombre es ${encodeURIComponent(nombre)} y deseo inscribirme en el curso de ${encodeURIComponent(curso)}.`;
-            window.open(`https://wa.me/?text=${mensaje}`, '_blank');
+            const correo = document.getElementById('correo').value;
+            const celular = document.getElementById('celular').value;
+            const curso = document.getElementById('cursoSelect').value;
+
+            // Mostrar mensaje de éxito en pantalla
+            document.getElementById('successMessage').style.display = 'block';
+
+            // Generar mensaje para confirmar registro vía WhatsApp
+            const mensajeWA = `Hola,%20acabo%20de%20crear%20mi%20cuenta%20en%20la%20página%20web.%0A%0A*Nombre:*%20${encodeURIComponent(nombre)}%0A*Correo:*%20${encodeURIComponent(correo)}%0A*Celular:*%20${encodeURIComponent(celular)}%0A*Curso:*%20${encodeURIComponent(curso)}`;
+            
+            setTimeout(() => {
+                window.open(`https://wa.me/?text=${mensajeWA}`, '_blank');
+            }, 1000);
         });
     </script>
 
