@@ -51,10 +51,6 @@
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        nav ul li a:hover {
-            color: #ffa4b1;
         }
 
         header {
@@ -85,7 +81,7 @@
             font-size: 1.8rem;
         }
 
-        /* Estructura de Unidades Pedagógicas */
+        /* Metodología */
         .methodology-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -99,33 +95,8 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             border-top: 4px solid var(--primary);
         }
-        .methodology-card h3 {
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
 
-        /* Sección Multimedia / Video */
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            border-radius: 10px;
-            margin-top: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* Tarjeta de Vocabulario con Imagen */
+        /* Vocabulario */
         .vocab-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -147,7 +118,7 @@
             margin-bottom: 8px;
         }
 
-        /* Sección Juegos */
+        /* Juegos */
         .game-card {
             background: white;
             border-radius: 10px;
@@ -158,7 +129,7 @@
             border-top: 4px solid var(--accent);
         }
 
-        /* Botones de Selección */
+        /* Modalidades */
         .course-tabs {
             display: flex;
             justify-content: center;
@@ -174,7 +145,6 @@
             border-radius: 8px;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s ease;
         }
         .tab-btn.active, .tab-btn:hover {
             background-color: var(--primary);
@@ -189,7 +159,6 @@
             color: white;
         }
 
-        /* Detalle del Programa Seleccionado */
         .course-detail {
             background: white;
             border-radius: 10px;
@@ -200,11 +169,6 @@
         }
         .course-detail.reto-border {
             border-top: 5px solid var(--accent);
-        }
-        .course-detail h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.6rem;
         }
         .roadmap-grid {
             display: grid;
@@ -222,37 +186,10 @@
         .month-card.m1 { border-left-color: var(--primary); }
         .month-card.m2 { border-left-color: #e65100; }
         .month-card.m3 { border-left-color: var(--accent); }
-
-        .month-card h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-        .month-card ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        .month-card ul li {
-            position: relative;
-            padding-left: 1.2rem;
-            margin-bottom: 0.4rem;
-            font-size: 0.95rem;
-        }
-        .month-card ul li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        .example-box {
-            background-color: #f0f4fc;
-            border-left: 4px solid var(--primary);
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 4px;
-        }
+        .month-card ul { list-style-type: none; padding-left: 0; }
+        .month-card ul li { position: relative; padding-left: 1.2rem; margin-bottom: 0.4rem; font-size: 0.95rem; }
+        .month-card ul li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+        .example-box { background-color: #f0f4fc; border-left: 4px solid var(--primary); padding: 1rem; margin: 1rem 0; border-radius: 4px; }
 
         /* Misión y Visión */
         .mission-vision-container {
@@ -262,210 +199,45 @@
             border-radius: 10px;
             text-align: center;
             margin-bottom: 3rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        .mv-box {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border-left: 5px solid var(--accent);
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-        .mv-box:last-child {
-            margin-bottom: 0;
-        }
-        .mv-box h3 {
-            color: #FFFFFF;
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-        }
+        .mv-box { background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: 12px; border-left: 5px solid var(--accent); margin-bottom: 1.5rem; text-align: left; }
 
-        /* Cuestionario por Niveles */
-        .quiz-container {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            margin-bottom: 3rem;
-        }
-        .level-header {
-            background: var(--primary);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 6px;
-            font-size: 1rem;
-            margin-top: 1.5rem;
-            display: inline-block;
-            font-weight: bold;
-        }
-        .quiz-card {
-            background: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 1.2rem;
-            margin-top: 0.8rem;
-        }
-        .quiz-card p {
-            font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        .quiz-card label {
-            display: block;
-            margin: 8px 0;
-            cursor: pointer;
-        }
-        .btn-check {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-            font-weight: bold;
-        }
+        /* Test de Nivel */
+        .quiz-container { background: white; border-radius: 10px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-bottom: 3rem; }
+        .level-header { background: var(--primary); color: white; padding: 8px 15px; border-radius: 6px; font-size: 1rem; margin-top: 1.5rem; display: inline-block; font-weight: bold; }
+        .quiz-card { background: #f8f9fa; border: 1px solid #ddd; border-radius: 8px; padding: 1.2rem; margin-top: 0.8rem; }
+        .quiz-card label { display: block; margin: 8px 0; cursor: pointer; }
+        .btn-check { background: var(--primary); color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; margin-top: 10px; font-weight: bold; }
 
-        /* Anuncio Bono Exclusivo */
-        .pdf-banner {
-            background: #FFF0F0;
-            border: 2px dashed var(--accent);
-            border-radius: 12px;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        .badge-gift {
-            background: var(--accent);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-        }
+        /* Anuncio Bono */
+        .pdf-banner { background: #FFF0F0; border: 2px dashed var(--accent); border-radius: 12px; padding: 2rem 1.5rem; text-align: center; margin-bottom: 3rem; }
+        .badge-gift { background: var(--accent); color: white; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; }
 
-        /* Formulario de Registro */
-        .register-card {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border-top: 5px solid var(--accent);
-            max-width: 600px;
-            margin: 0 auto 3rem auto;
-        }
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 0.4rem;
-            color: var(--primary);
-        }
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 1rem;
-        }
-        .btn-submit {
-            width: 100%;
-            background-color: var(--accent);
-            color: white;
-            border: none;
-            padding: 1rem;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        .btn-submit:hover {
-            background-color: #b0102d;
-        }
+        /* Formulario Registro */
+        .register-card { background: white; border-radius: 10px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-top: 5px solid var(--accent); max-width: 600px; margin: 0 auto 3rem auto; }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 0.4rem; color: var(--primary); }
+        .form-group input, .form-group select { width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; }
+        .btn-submit { width: 100%; background-color: var(--accent); color: white; border: none; padding: 1rem; border-radius: 6px; font-weight: bold; font-size: 1.1rem; cursor: pointer; }
 
-        .alert-success {
-            display: none;
-            background-color: #d4edda;
-            color: #155724;
-            padding: 1rem;
-            border-radius: 6px;
-            margin-bottom: 1rem;
-            border: 1px solid #c3e6cb;
-            text-align: center;
-        }
-
-        /* Banner de Cookies Flotante */
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: var(--dark);
-            color: white;
-            padding: 1rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
-            z-index: 2000;
-            font-size: 0.9rem;
-        }
-        .cookie-btn {
-            background-color: var(--accent);
-            color: white;
-            border: none;
-            padding: 0.5rem 1.2rem;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 70px;
-            right: 20px;
-            background-color: #25d366;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            z-index: 1000;
-        }
-        footer {
-            text-align: center;
-            padding: 2rem 1rem;
-            background-color: var(--primary);
-            color: white;
-            margin-top: 2rem;
-            font-size: 0.9rem;
-        }
-        footer a {
-            color: #a0c4ff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
+        /* Legales y Flotantes */
+        .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; background-color: var(--dark); color: white; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; z-index: 2000; font-size: 0.9rem; }
+        .cookie-btn { background-color: var(--accent); color: white; border: none; padding: 0.5rem 1.2rem; border-radius: 5px; font-weight: bold; cursor: pointer; }
+        .whatsapp-float { position: fixed; bottom: 70px; right: 20px; background-color: #25d366; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 1000; }
+        footer { text-align: center; padding: 2rem 1rem; background-color: var(--primary); color: white; margin-top: 2rem; font-size: 0.9rem; }
+        footer a { color: #a0c4ff; text-decoration: none; margin: 0 10px; }
     </style>
 </head>
 <body>
 
-    <!-- Menú de Navegación -->
     <nav>
         <a href="#" class="logo">Inglés Pasito a Pasito</a>
         <ul>
             <li><a href="#metodologia">Metodología</a></li>
-            <li><a href="#recursos">Recursos Multimedia</a></li>
-            <li><a href="#juegos">Juegos Interactivos</a></li>
+            <li><a href="#recursos">Vocabulario</a></li>
+            <li><a href="#juegos">Juegos</a></li>
             <li><a href="#modalidades">Modalidades</a></li>
-            <li><a href="#nosotros">Nuestra Escuela</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
             <li><a href="#test-nivel">Test de Nivel</a></li>
             <li><a href="#registro-section">Inscripción</a></li>
         </ul>
@@ -478,7 +250,6 @@
 
     <div class="container">
         
-        <!-- Estructura de Aprendizaje por Unidad -->
         <h2 class="section-title" id="metodologia">Nuestra Estructura de Aprendizaje</h2>
         <div class="methodology-grid">
             <div class="methodology-card">
@@ -491,7 +262,7 @@
             </div>
             <div class="methodology-card">
                 <h3>🗣️ 3. Vocabulario (Vocabulary)</h3>
-                <p>Listas de palabras nuevas temáticas acompañadas de imágenes, audios y ejemplos de uso en contexto real.</p>
+                <p>Listas de palabras nuevas temáticas acompañadas de imágenes y ejemplos de uso en contexto real.</p>
             </div>
             <div class="methodology-card">
                 <h3>📖 4. Comprensión Lectora (Reading)</h3>
@@ -499,7 +270,7 @@
             </div>
             <div class="methodology-card">
                 <h3>🎧 5. Comprensión Auditiva (Listening)</h3>
-                <p>Audios, canciones o videos cortos con ejercicios para entrenar el oído con acentos nativos.</p>
+                <p>Audios o canciones cortas con ejercicios para entrenar el oído con acentos nativos.</p>
             </div>
             <div class="methodology-card">
                 <h3>✍️ 6. Práctica y Evaluación (Quiz/Testing)</h3>
@@ -507,8 +278,7 @@
             </div>
         </div>
 
-        <!-- Muestra de Recursos Multimedia (Imágenes y Video) -->
-        <h2 class="section-title" id="recursos">📸 Vocabulario Ilustrado & Video Práctico</h2>
+        <h2 class="section-title" id="recursos">📸 Vocabulario Ilustrado</h2>
         <div style="background: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-bottom: 3rem;">
             <h3 style="color: var(--primary); margin-bottom: 10px;">Vocabulario Visual: Lugares de la Ciudad</h3>
             <div class="vocab-grid">
@@ -533,18 +303,10 @@
                     <p style="font-size: 0.85rem; color: #666;">Calle</p>
                 </div>
             </div>
-
-            <h3 style="color: var(--primary); margin-top: 25px; margin-bottom: 10px;">🎧 Ejercicio de Escucha (Listening Video)</h3>
-            <p style="color: #555; font-size: 0.95rem;">Mira este video educativo para entrenar la pronunciación básica y frases cotidianas:</p>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/S45XyI_aX0A" title="Clase de Inglés Básica" allowfullscreen></iframe>
-            </div>
         </div>
 
-        <!-- Zona de Juegos Interactivos -->
         <h2 class="section-title" id="juegos">🎮 Zona de Práctica Interactiva</h2>
         
-        <!-- JUEGO 1: MEMORIA -->
         <div class="game-card">
             <h3 style="color: var(--primary);">🧠 Juego 1: Encuentra las Parejas (Word Match)</h3>
             <p style="color: #555; margin-bottom: 15px;">Encuentra cada palabra en inglés con su significado en español:</p>
@@ -552,7 +314,6 @@
             <p id="memory-message" style="margin-top: 15px; font-weight: bold; color: green;"></p>
         </div>
 
-        <!-- JUEGO 2: ORDENAR ORACIÓN -->
         <div class="game-card">
             <h3 style="color: var(--primary);">🧩 Juego 2: Construye la Oración</h3>
             <p style="color: #555;">Toca las palabras en el orden correcto para formar: <em>"Amo aprender inglés pasito a pasito"</em></p>
@@ -565,7 +326,6 @@
             <p id="scramble-result" style="margin-top: 10px; font-weight: bold;"></p>
         </div>
 
-        <!-- JUEGO 3: SPEED VOCABULARY -->
         <div class="game-card">
             <h3 style="color: var(--primary);">⚡ Juego 3: Vocabulario Rápido</h3>
             <p id="vocab-question" style="font-size: 18px; font-weight: bold; color: #333; margin: 15px 0;"></p>
@@ -573,7 +333,75 @@
             <p id="vocab-feedback" style="margin-top: 10px; font-weight: bold;"></p>
         </div>
 
-        <!-- Explorador de Modalidades -->
         <h2 class="section-title" id="modalidades">Nuestras Modalidades de Aprendizaje</h2>
         
-     
+        <div class="course-tabs">
+            <button class="tab-btn highlight active" onclick="showCourse('reto', event)">🔥 Reto de Habla (90 Días)</button>
+            <button class="tab-btn" onclick="showCourse('basico', event)">Programa Básico e Intermedio</button>
+            <button class="tab-btn" onclick="showCourse('personalizado', event)">Acompañamiento Personalizado</button>
+        </div>
+
+        <div id="course-content" class="course-detail reto-border">
+        </div>
+
+        <div class="mission-vision-container" id="nosotros">
+            <h2 style="margin-bottom: 1.5rem; font-size: 1.8rem;">Conoce Nuestra Escuela</h2>
+            
+            <div class="mv-box">
+                <h3>🎯 Nuestra Misión</h3>
+                <p>En <strong>Inglés Pasito a Pasito</strong>, capacitamos a personas de todas las edades a dominar el inglés práctico y conversacional desde cero, eliminando el miedo a hablar mediante una metodología accesible, paso a paso y enfocada en situaciones reales de la vida cotidiana.</p>
+            </div>
+
+            <div class="mv-box">
+                <h3>🚀 Nuestra Visión</h3>
+                <p>Ser la comunidad educativa líder de aprendizaje práctico de inglés en Hispanoamérica, reconocida por transformar la confianza de nuestros estudiantes para que puedan viajar, trabajar y comunicarse libremente en cualquier parte del mundo.</p>
+            </div>
+        </div>
+
+        <div class="quiz-container" id="test-nivel">
+            <h2 class="section-title">✍️ Test de Diagnóstico por Niveles</h2>
+            <p style="text-align: center; color: #555;">Responde cada pregunta para evaluar en qué nivel te encuentras actualmente:</p>
+
+            <div class="level-header">Etapa 1: Básico 1</div>
+            <div class="quiz-card">
+                <p>1. ¿Cómo preguntas amablemente "¿Dónde está el baño?" en un establecimiento?</p>
+                <label><input type="radio" name="q1" value="wrong"> A) Where bathroom is?</label>
+                <label><input type="radio" name="q1" value="correct"> B) Where is the restroom?</label>
+                <label><input type="radio" name="q1" value="wrong"> C) Bathroom location please?</label>
+                <button class="btn-check" onclick="checkAnswer('q1', 'correct', 'ans1')">Verificar nivel</button>
+                <p id="ans1" style="font-weight: bold; margin-top: 10px;"></p>
+            </div>
+
+            <div class="level-header">Etapa 2: Básico 2</div>
+            <div class="quiz-card">
+                <p>2. ¿Cómo expresas lo que hiciste ayer por la tarde?</p>
+                <label><input type="radio" name="q2" value="correct"> A) I studied English yesterday afternoon.</label>
+                <label><input type="radio" name="q2" value="wrong"> B) I study English yesterday afternoon.</label>
+                <label><input type="radio" name="q2" value="wrong"> C) I am study English yesterday.</label>
+                <button class="btn-check" onclick="checkAnswer('q2', 'correct', 'ans2')">Verificar nivel</button>
+                <p id="ans2" style="font-weight: bold; margin-top: 10px;"></p>
+            </div>
+
+            <div class="level-header">Etapa 3: Intermedio 1</div>
+            <div class="quiz-card">
+                <p>3. ¿Cuál es la forma correcta de hablar de una experiencia vivida hasta el momento?</p>
+                <label><input type="radio" name="q3" value="wrong"> A) I lived in London three years ago.</label>
+                <label><input type="radio" name="q3" value="correct"> B) I have visited three different countries so far.</label>
+                <label><input type="radio" name="q3" value="wrong"> C) I visit three countries so far.</label>
+                <button class="btn-check" onclick="checkAnswer('q3', 'correct', 'ans3')">Verificar nivel</button>
+                <p id="ans3" style="font-weight: bold; margin-top: 10px;"></p>
+            </div>
+
+            <div class="level-header">Etapa 4: Intermedio 2</div>
+            <div class="quiz-card">
+                <p>4. ¿Cómo completas la frase: "If it rains tomorrow, we _______ the outdoor class"?</p>
+                <label><input type="radio" name="q4" value="correct"> A) will cancel</label>
+                <label><input type="radio" name="q4" value="wrong"> B) canceled</label>
+                <label><input type="radio" name="q4" value="wrong"> C) would cancel</label>
+                <button class="btn-check" onclick="checkAnswer('q4', 'correct', 'ans4')">Verificar nivel</button>
+                <p id="ans4" style="font-weight: bold; margin-top: 10px;"></p>
+            </div>
+
+            <div class="level-header">Etapa 5: Avanzado 1</div>
+            <div class="quiz-card">
+                <p>5. ¿Cómo expresarías una situación hipotética en el pasado? "If I had practiced more, I _______ the
