@@ -150,6 +150,104 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Estilos Misión y Visión */
+        .mission-vision-container {
+            background-color: var(--primary);
+            color: white;
+            padding: 2.5rem 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .mv-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 5px solid var(--accent);
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        .mv-box:last-child {
+            margin-bottom: 0;
+        }
+        .mv-box h3 {
+            color: #FFFFFF;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Estilos Cuestionario */
+        .quiz-container {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 3rem;
+        }
+        .quiz-card {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.2rem;
+            margin-top: 1.2rem;
+        }
+        .quiz-card p {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .quiz-card label {
+            display: block;
+            margin: 8px 0;
+            cursor: pointer;
+        }
+        .btn-check {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* Estilos Banner PDF */
+        .pdf-banner {
+            background: #FFF0F0;
+            border: 2px dashed var(--accent);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .badge-gift {
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+        .btn-pdf {
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(217, 20, 56, 0.3);
+            transition: transform 0.2s ease;
+        }
+        .btn-pdf:hover {
+            transform: translateY(-2px);
+        }
+
         /* Formulario de Registro */
         .register-card {
             background: white;
@@ -249,6 +347,57 @@
         <!-- Detalle de Cursos -->
         <div id="course-content" class="course-detail reto-border">
             <!-- El contenido interactivo se carga dinámicamente -->
+        </div>
+
+        <!-- Sección: Misión y Visión -->
+        <div class="mission-vision-container">
+            <h2 style="margin-bottom: 1.5rem; font-size: 1.8rem;">Conoce Nuestra Escuela</h2>
+            
+            <div class="mv-box">
+                <h3>🎯 Nuestra Misión</h3>
+                <p>En <strong>Inglés Pasito a Pasito</strong>, capacitamos a personas de todas las edades a dominar el inglés práctico y conversacional desde cero, eliminando el miedo a hablar mediante una metodología accesible, paso a paso y enfocada en situaciones reales de la vida cotidiana.</p>
+            </div>
+
+            <div class="mv-box">
+                <h3>🚀 Nuestra Visión</h3>
+                <p>Ser la comunidad educativa líder de aprendizaje práctico de inglés en Hispanoamérica, reconocida por transformar la confianza de nuestros estudiantes para que puedan viajar, trabajar y comunicarse libremente en cualquier parte del mundo.</p>
+            </div>
+        </div>
+
+        <!-- Sección: Cuestionario Interactivo -->
+        <div class="quiz-container">
+            <h2 class="section-title">✍️ Pon a prueba tu Inglés en el Aeropuerto</h2>
+            <p style="text-align: center; color: #555;">Selecciona la respuesta correcta para continuar:</p>
+
+            <!-- Pregunta 1 -->
+            <div class="quiz-card">
+                <p>1. ¿Cómo preguntas "¿Dónde está la puerta 5?" en un aeropuerto?</p>
+                <label><input type="radio" name="q1" value="wrong"> A) Where is gate 5 located please?</label>
+                <label><input type="radio" name="q1" value="correct"> B) Where is gate 5?</label>
+                <label><input type="radio" name="q1" value="wrong"> C) How reach gate 5?</label>
+                <button class="btn-check" onclick="checkAnswer('q1', 'correct', 'ans1')">Verificar respuesta</button>
+                <p id="ans1" style="font-weight: bold; margin-top: 10px;"></p>
+            </div>
+
+            <!-- Pregunta 2 -->
+            <div class="quiz-card">
+                <p>2. Si necesitas pedir ayuda con tu equipaje, ¿cuál es la frase adecuada?</p>
+                <label><input type="radio" name="q2" value="wrong"> A) Help my bag now.</label>
+                <label><input type="radio" name="q2" value="correct"> B) Could you help me with my bag?</label>
+                <label><input type="radio" name="q2" value="wrong"> C) Can bag take me?</label>
+                <button class="btn-check" onclick="checkAnswer('q2', 'correct', 'ans2')">Verificar respuesta</button>
+                <p id="ans2" style="font-weight: bold; margin-top: 10px;"></p>
+            </div>
+        </div>
+
+        <!-- Sección: Regalo PDF -->
+        <div class="pdf-banner">
+            <span class="badge-gift">🎁 Regalo Exclusivo</span>
+            <h2 style="color: var(--primary); margin-top: 15px; font-size: 1.8rem;">Guía PDF de Vocabulario y Frases Imprescindibles</h2>
+            <p style="color: #333; font-size: 1rem; max-width: 600px; margin: 10px auto 20px auto;">
+                ¡Lleva contigo las frases clave para viajar, comprar y comunicarte sin trabas! Descarga gratis nuestro PDF de bolsillo diseñado especialmente para principiantes.
+            </p>
+            <a href="#" class="btn-pdf">📥 Descargar Mi Guía Gratuita</a>
         </div>
 
         <!-- Formulario de Registro de Usuario -->
@@ -411,6 +560,28 @@
                     select.selectedIndex = i;
                     break;
                 }
+            }
+        }
+
+        // Lógica del cuestionario interactivo
+        function checkAnswer(questionName, correctAnswer, resultId) {
+            const options = document.getElementsByName(questionName);
+            let selectedValue = "";
+            for (const option of options) {
+                if (option.checked) {
+                    selectedValue = option.value;
+                }
+            }
+            const resultElement = document.getElementById(resultId);
+            if (selectedValue === correctAnswer) {
+                resultElement.innerText = "¡Correcto! 🎉 Excelente elección.";
+                resultElement.style.color = "green";
+            } else if (selectedValue === "") {
+                resultElement.innerText = "Por favor selecciona una opción.";
+                resultElement.style.color = "orange";
+            } else {
+                resultElement.innerText = "Incorrecto ❌ Inténtalo de nuevo.";
+                resultElement.style.color = "red";
             }
         }
 
