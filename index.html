@@ -22,6 +22,7 @@
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
+            padding-bottom: 70px;
         }
         /* Navegación Principal */
         nav {
@@ -221,7 +222,22 @@
         .btn-submit { width: 100%; background-color: var(--accent); color: white; border: none; padding: 1rem; border-radius: 6px; font-weight: bold; font-size: 1.1rem; cursor: pointer; }
 
         /* Legales y Flotantes */
-        .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; background-color: var(--dark); color: white; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; z-index: 2000; font-size: 0.9rem; }
+        .cookie-banner { 
+            position: fixed !important; 
+            bottom: 0 !important; 
+            left: 0 !important; 
+            right: 0 !important; 
+            width: 100% !important;
+            background-color: var(--dark) !important; 
+            color: white !important; 
+            padding: 1rem 1.5rem !important; 
+            display: flex !important; 
+            justify-content: space-between !important; 
+            align-items: center !important; 
+            z-index: 999999 !important; 
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+        }
         .cookie-btn { background-color: var(--accent); color: white; border: none; padding: 0.5rem 1.2rem; border-radius: 5px; font-weight: bold; cursor: pointer; }
         .whatsapp-float { position: fixed; bottom: 70px; right: 20px; background-color: #25d366; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 1000; }
         footer { text-align: center; padding: 2rem 1rem; background-color: var(--primary); color: white; margin-top: 2rem; font-size: 0.9rem; }
@@ -258,11 +274,11 @@
             </div>
             <div class="methodology-card">
                 <h3>📚 2. Gramática (Grammar)</h3>
-                <p>Explicaciones sencillas de reglas, patrones de oraciones (Sujeto + Verbo + Objeto) y tablas de tiempos verbales.</p>
+                <p>Explicaciones sencillas de reglas, patrones de oraciones y tablas de tiempos verbales.</p>
             </div>
             <div class="methodology-card">
                 <h3>🗣️ 3. Vocabulario (Vocabulary)</h3>
-                <p>Listas de palabras nuevas temáticas acompañadas de imágenes y ejemplos de uso en contexto real.</p>
+                <p>Listas de palabras temáticas acompañadas de imágenes y ejemplos en contexto real.</p>
             </div>
             <div class="methodology-card">
                 <h3>📖 4. Comprensión Lectora (Reading)</h3>
@@ -270,11 +286,11 @@
             </div>
             <div class="methodology-card">
                 <h3>🎧 5. Comprensión Auditiva (Listening)</h3>
-                <p>Audios o canciones cortas con ejercicios para entrenar el oído con acentos nativos.</p>
+                <p>Audios o canciones cortas para entrenar el oído con acentos nativos.</p>
             </div>
             <div class="methodology-card">
-                <h3>✍️ 6. Práctica y Evaluación (Quiz/Testing)</h3>
-                <p>Cuestionarios interactivos, retroalimentación inmediata y seguimiento del progreso por niveles (A1 a C1).</p>
+                <h3>✍️ 6. Práctica y Evaluación (Quiz)</h3>
+                <p>Cuestionarios interactivos, retroalimentación inmediata y seguimiento del progreso (A1 a C1).</p>
             </div>
         </div>
 
@@ -349,25 +365,24 @@
             
             <div class="mv-box">
                 <h3>🎯 Nuestra Misión</h3>
-                <p>En <strong>Inglés Pasito a Pasito</strong>, capacitamos a personas de todas las edades a dominar el inglés práctico y conversacional desde cero, eliminando el miedo a hablar mediante una metodología accesible, paso a paso y enfocada en situaciones reales de la vida cotidiana.</p>
+                <p>En <strong>Inglés Pasito a Pasito</strong>, capacitamos a personas de todas las edades a dominar el inglés práctico y conversacional desde cero, eliminando el miedo a hablar mediante una metodología accesible.</p>
             </div>
 
             <div class="mv-box">
                 <h3>🚀 Nuestra Visión</h3>
-                <p>Ser la comunidad educativa líder de aprendizaje práctico de inglés en Hispanoamérica, reconocida por transformar la confianza de nuestros estudiantes para que puedan viajar, trabajar y comunicarse libremente en cualquier parte del mundo.</p>
+                <p>Ser la comunidad educativa líder de aprendizaje práctico de inglés en Hispanoamérica, reconocida por transformar la confianza de nuestros estudiantes.</p>
             </div>
         </div>
 
         <div class="quiz-container" id="test-nivel">
             <h2 class="section-title">✍️ Test de Diagnóstico por Niveles</h2>
-            <p style="text-align: center; color: #555;">Responde cada pregunta para evaluar en qué nivel te encuentras actualmente:</p>
+            <p style="text-align: center; color: #555;">Responde cada pregunta para evaluar en qué nivel te encuentras:</p>
 
             <div class="level-header">Etapa 1: Básico 1</div>
             <div class="quiz-card">
-                <p>1. ¿Cómo preguntas amablemente "¿Dónde está el baño?" en un establecimiento?</p>
+                <p>1. ¿Cómo preguntas amablemente "¿Dónde está el baño?"</p>
                 <label><input type="radio" name="q1" value="wrong"> A) Where bathroom is?</label>
                 <label><input type="radio" name="q1" value="correct"> B) Where is the restroom?</label>
-                <label><input type="radio" name="q1" value="wrong"> C) Bathroom location please?</label>
                 <button class="btn-check" onclick="checkAnswer('q1', 'correct', 'ans1')">Verificar nivel</button>
                 <p id="ans1" style="font-weight: bold; margin-top: 10px;"></p>
             </div>
@@ -377,7 +392,6 @@
                 <p>2. ¿Cómo expresas lo que hiciste ayer por la tarde?</p>
                 <label><input type="radio" name="q2" value="correct"> A) I studied English yesterday afternoon.</label>
                 <label><input type="radio" name="q2" value="wrong"> B) I study English yesterday afternoon.</label>
-                <label><input type="radio" name="q2" value="wrong"> C) I am study English yesterday.</label>
                 <button class="btn-check" onclick="checkAnswer('q2', 'correct', 'ans2')">Verificar nivel</button>
                 <p id="ans2" style="font-weight: bold; margin-top: 10px;"></p>
             </div>
@@ -387,21 +401,294 @@
                 <p>3. ¿Cuál es la forma correcta de hablar de una experiencia vivida hasta el momento?</p>
                 <label><input type="radio" name="q3" value="wrong"> A) I lived in London three years ago.</label>
                 <label><input type="radio" name="q3" value="correct"> B) I have visited three different countries so far.</label>
-                <label><input type="radio" name="q3" value="wrong"> C) I visit three countries so far.</label>
                 <button class="btn-check" onclick="checkAnswer('q3', 'correct', 'ans3')">Verificar nivel</button>
                 <p id="ans3" style="font-weight: bold; margin-top: 10px;"></p>
             </div>
 
             <div class="level-header">Etapa 4: Intermedio 2</div>
             <div class="quiz-card">
-                <p>4. ¿Cómo completas la frase: "If it rains tomorrow, we _______ the outdoor class"?</p>
+                <p>4. ¿Cómo completas la frase: "If it rains tomorrow, we _______ the class"?</p>
                 <label><input type="radio" name="q4" value="correct"> A) will cancel</label>
                 <label><input type="radio" name="q4" value="wrong"> B) canceled</label>
-                <label><input type="radio" name="q4" value="wrong"> C) would cancel</label>
                 <button class="btn-check" onclick="checkAnswer('q4', 'correct', 'ans4')">Verificar nivel</button>
                 <p id="ans4" style="font-weight: bold; margin-top: 10px;"></p>
             </div>
 
             <div class="level-header">Etapa 5: Avanzado 1</div>
             <div class="quiz-card">
-                <p>5. ¿Cómo expresarías una situación hipotética en el pasado? "If I had practiced more, I _______ the
+                <p>5. Situación hipotética pasada: "If I had practiced more, I _______ the exam."</p>
+                <label><input type="radio" name="q5" value="wrong"> A) will pass</label>
+                <label><input type="radio" name="q5" value="correct"> B) would have passed</label>
+                <button class="btn-check" onclick="checkAnswer('q5', 'correct', 'ans5')">Verificar nivel</button>
+                <p id="ans5" style="font-weight: bold; margin-top: 10px;"></p>
+            </div>
+
+            <div class="level-header">Etapa 6: Avanzado 2</div>
+            <div class="quiz-card">
+                <p>6. Deducción pasada: "She is not here. She _______ early."</p>
+                <label><input type="radio" name="q6" value="correct"> A) must have left</label>
+                <label><input type="radio" name="q6" value="wrong"> B) leave</label>
+                <button class="btn-check" onclick="checkAnswer('q6', 'correct', 'ans6')">Verificar nivel</button>
+                <p id="ans6" style="font-weight: bold; margin-top: 10px;"></p>
+            </div>
+        </div>
+
+        <div class="pdf-banner" id="beneficio">
+            <span class="badge-gift">⭐ Beneficio Especial por Lanzamiento</span>
+            <h2 style="color: var(--primary); margin-top: 15px; font-size: 1.8rem;">Guía de las 100 Palabras Esenciales</h2>
+            <p style="color: #333; font-size: 1.05rem; max-width: 650px; margin: 15px auto;">
+                Exclusivo para las <strong>primeras 5 personas</strong> que completen su inscripción.
+            </p>
+            <a href="#registro-section" style="display: inline-block; background-color: var(--accent); color: white; padding: 0.8rem 1.6rem; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 0.5rem;">Asegurar mi cupo ↓</a>
+        </div>
+
+        <div class="register-card" id="registro-section">
+            <h2 class="section-title" style="margin-bottom: 1rem;">Crear Cuenta / Inscribirme</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" placeholder="Ej. Ana Lopez" required>
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico:</label>
+                    <input type="email" id="correo" placeholder="ejemplo@correo.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="celular">Número de Celular / WhatsApp:</label>
+                    <input type="tel" id="celular" placeholder="+51 987654321" required>
+                </div>
+                <div class="form-group">
+                    <label for="cursoSelect">Modalidad elegida:</label>
+                    <select id="cursoSelect" required>
+                        <option value="Reto de Habla (90 Días)">🔥 Reto de Habla - Plan Intensivo 90 Días</option>
+                        <option value="Programa Básico e Intermedio">Programa Básico e Intermedio</option>
+                        <option value="Acompañamiento Personalizado">Acompañamiento Personalizado 1 a 1</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Registro a mi WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- BANNER DE COOKIES FLOTANTE -->
+    <div class="cookie-banner" id="cookieBanner">
+        <span>🍪 Utilizamos cookies para mejorar tu experiencia de navegación.</span>
+        <button class="cookie-btn" onclick="acceptCookies()">Aceptar Cookies</button>
+    </div>
+
+    <a id="waFloatBtn" href="#" target="_blank" class="whatsapp-float">💬 Ayuda por WhatsApp</a>
+
+    <footer>
+        <p>&copy; 2026 Inglés Pasito a Pasito - Todos los derechos reservados.</p>
+        <p style="margin-top: 8px;"><a href="#">Política de Privacidad</a> | <a href="#">Términos de Servicio</a></p>
+    </footer>
+
+    <script>
+        const MI_NUMERO_WHATSAPP = "51987654321"; 
+        document.getElementById('waFloatBtn').href = `https://wa.me/${MI_NUMERO_WHATSAPP}?text=Hola,%20tengo%20una%20consulta.`;
+
+        const coursesData = {
+            reto: {
+                title: "🔥 Plan Intensivo: Reto de Habla (90 Días)",
+                description: "Un programa acelerado para hablar con total soltura en solo 3 meses.",
+                isReto: true,
+                roadmap: [
+                    { month: "Mes 1: Bases y Confianza", class: "m1", points: ["Presentarte con seguridad", "Pedir información", "Frases cotidianas"] },
+                    { month: "Mes 2: Fluidez Cotidiana", class: "m2", points: ["Expresar gustos", "Describir rutinas", "Conversaciones fluidas"] },
+                    { month: "Mes 3: Autonomía", class: "m3", points: ["Hablar a futuro", "Dar opiniones", "Viajar sin traductores"] }
+                ],
+                exampleTitle: "🎯 Resultado Garantizado:",
+                exampleText: "En 90 días lograrás hablar inglés de forma natural."
+            },
+            basico: {
+                title: "Programa Básico e Intermedio",
+                description: "Desde los fundamentos hasta construir conversaciones completas.",
+                exampleTitle: "💡 Ejemplo práctico:",
+                exampleText: "'I have been studying English step by step, and now I can hold a conversation.'"
+            },
+            personalizado: {
+                title: "Acompañamiento Personalizado 1 a 1",
+                description: "Diseñado a la medida de tus metas específicas.",
+                exampleTitle: "💡 Ejemplo práctico:",
+                exampleText: "'Could you tell me more about the responsibilities of this position?'"
+            }
+        };
+
+        function showCourse(courseKey, evt) {
+            const course = coursesData[courseKey];
+            const contentDiv = document.getElementById('course-content');
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            if(evt) evt.target.classList.add('active');
+
+            if(course.isReto) {
+                contentDiv.className = "course-detail reto-border";
+                let roadmapHTML = '<div class="roadmap-grid">';
+                course.roadmap.forEach(m => {
+                    roadmapHTML += `<div class="month-card ${m.class}"><h4>${m.month}</h4><ul>${m.points.map(p => `<li>${p}</li>`).join('')}</ul></div>`;
+                });
+                roadmapHTML += '</div>';
+                contentDiv.innerHTML = `<h3>${course.title}</h3><p>${course.description}</p>${roadmapHTML}<div class="example-box"><h4>${course.exampleTitle}</h4><p>${course.exampleText}</p></div><a href="#registro-section" style="display:inline-block; background-color: var(--accent); color: white; padding: 0.8rem 1.4rem; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 0.5rem;">Unirme al Reto ↓</a>`;
+            } else {
+                contentDiv.className = "course-detail";
+                contentDiv.innerHTML = `<h3>${course.title}</h3><p>${course.description}</p><div class="example-box"><h4>${course.exampleTitle}</h4><p>${course.exampleText}</p></div><a href="#registro-section" style="display:inline-block; background-color: var(--primary); color: white; padding: 0.6rem 1.2rem; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 0.5rem;">Elegir modalidad ↓</a>`;
+            }
+        }
+
+        function checkAnswer(questionName, correctAnswer, resultId) {
+            const options = document.getElementsByName(questionName);
+            let selectedValue = "";
+            for (const option of options) { if (option.checked) selectedValue = option.value; }
+            const resultElement = document.getElementById(resultId);
+            if (selectedValue === correctAnswer) {
+                resultElement.innerText = "¡Correcto! 🎉"; resultElement.style.color = "green";
+            } else if (selectedValue === "") {
+                resultElement.innerText = "Selecciona una opción."; resultElement.style.color = "orange";
+            } else {
+                resultElement.innerText = "Incorrecto ❌"; resultElement.style.color = "red";
+            }
+        }
+
+        const cardsData = [
+            { text: "Apple", match: 1 }, { text: "Manzana", match: 1 },
+            { text: "House", match: 2 }, { text: "Casa", match: 2 },
+            { text: "Water", match: 3 }, { text: "Agua", match: 3 },
+            { text: "Sun", match: 4 }, { text: "Sol", match: 4 }
+        ];
+        let flippedCards = [];
+        let matchedCount = 0;
+
+        function initMemoryGame() {
+            const board = document.getElementById("memory-board");
+            if(!board) return;
+            board.innerHTML = "";
+            let shuffled = [...cardsData].sort(() => 0.5 - Math.random());
+            shuffled.forEach(item => {
+                const card = document.createElement("button");
+                card.style.cssText = "padding: 15px 5px; font-weight: bold; font-size: 14px; cursor: pointer; border: 2px solid #002573; border-radius: 8px; background-color: #002573; color: white;";
+                card.innerText = "?";
+                card.onclick = () => {
+                    if (flippedCards.length < 2 && !card.disabled && !flippedCards.includes(card)) {
+                        card.innerText = item.text;
+                        card.style.backgroundColor = "#ffffff";
+                        card.style.color = "#002573";
+                        flippedCards.push({ card, match: item.match });
+                        if (flippedCards.length === 2) {
+                            setTimeout(() => {
+                                if (flippedCards[0].match === flippedCards[1].match) {
+                                    flippedCards[0].card.disabled = true;
+                                    flippedCards[1].card.disabled = true;
+                                    matchedCount += 2;
+                                    if (matchedCount === cardsData.length) document.getElementById("memory-message").innerText = "¡Excelente! 🎉";
+                                } else {
+                                    flippedCards[0].card.innerText = "?";
+                                    flippedCards[1].card.innerText = "?";
+                                    flippedCards[0].card.style.backgroundColor = "#002573";
+                                    flippedCards[0].card.style.color = "white";
+                                    flippedCards[1].card.style.backgroundColor = "#002573";
+                                    flippedCards[1].card.style.color = "white";
+                                }
+                                flippedCards = [];
+                            }, 800);
+                        }
+                    }
+                };
+                board.appendChild(card);
+            });
+        }
+
+        const targetSentence = ["I", "love", "learning", "English", "step", "by", "step"];
+        let userSentence = [];
+
+        function initScramble() {
+            const container = document.getElementById("word-buttons");
+            if(!container) return;
+            container.innerHTML = "";
+            let shuffled = [...targetSentence].sort(() => 0.5 - Math.random());
+            shuffled.forEach(word => {
+                const btn = document.createElement("button");
+                btn.innerText = word;
+                btn.style.cssText = "padding: 8px 12px; font-weight: bold; background: #f0f4fc; border: 1px solid #002573; border-radius: 5px; cursor: pointer;";
+                btn.onclick = () => {
+                    userSentence.push(word);
+                    document.getElementById("selected-words").innerText = userSentence.join(" ");
+                    btn.disabled = true; btn.style.opacity = "0.5";
+                };
+                container.appendChild(btn);
+            });
+        }
+
+        function checkSentence() {
+            const res = document.getElementById("scramble-result");
+            if (userSentence.join(" ") === targetSentence.join(" ")) {
+                res.innerText = "¡Correcto! 👏"; res.style.color = "green";
+            } else {
+                res.innerText = "Sigue intentándolo ❌"; res.style.color = "red";
+            }
+        }
+
+        function resetSentence() {
+            userSentence = [];
+            document.getElementById("selected-words").innerText = "";
+            document.getElementById("scramble-result").innerText = "";
+            initScramble();
+        }
+
+        const quizQuestions = [
+            { q: "✈️ ¿Cómo se dice 'Avión'?", options: ["Plane", "Car", "Ship"], correct: 0 },
+            { q: "☕ ¿Cómo se dice 'Café'?", options: ["Tea", "Coffee", "Water"], correct: 1 },
+            { q: "🔑 ¿Cómo se dice 'Llave'?", options: ["Door", "Lock", "Key"], correct: 2 }
+        ];
+        let currentQ = 0;
+
+        function loadVocabQuestion() {
+            if (currentQ >= quizQuestions.length) {
+                document.getElementById("vocab-question").innerText = "¡Completado! 🎉";
+                document.getElementById("vocab-options").innerHTML = "";
+                return;
+            }
+            const qData = quizQuestions[currentQ];
+            document.getElementById("vocab-question").innerText = qData.q;
+            const optionsDiv = document.getElementById("vocab-options");
+            optionsDiv.innerHTML = "";
+
+            qData.options.forEach((opt, idx) => {
+                const btn = document.createElement("button");
+                btn.innerText = opt;
+                btn.style.cssText = "padding: 10px; font-weight: bold; background: #002573; color: white; border: none; border-radius: 5px; cursor: pointer;";
+                btn.onclick = () => {
+                    const fb = document.getElementById("vocab-feedback");
+                    if (idx === qData.correct) {
+                        fb.innerText = "¡Muy bien! 👍"; fb.style.color = "green";
+                        currentQ++;
+                        setTimeout(() => { fb.innerText = ""; loadVocabQuestion(); }, 1000);
+                    } else {
+                        fb.innerText = "Inténtalo de nuevo ❌"; fb.style.color = "red";
+                    }
+                };
+                optionsDiv.appendChild(btn);
+            });
+        }
+
+        function acceptCookies() { 
+            document.getElementById('cookieBanner').style.display = 'none'; 
+        }
+
+        showCourse('reto');
+        initMemoryGame();
+        initScramble();
+        loadVocabQuestion();
+
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const correo = document.getElementById('correo').value;
+            const celular = document.getElementById('celular').value;
+            const curso = document.getElementById('cursoSelect').value;
+
+            const mensajeWA = `Hola,%20acabo%20de%20inscribirme:%0A%0A*Nombre:*%20${encodeURIComponent(nombre)}%0A*Correo:*%20${encodeURIComponent(correo)}%0A*Celular:*%20${encodeURIComponent(celular)}%0A*Modalidad:*%20${encodeURIComponent(curso)}`;
+            window.open(`https://wa.me/${MI_NUMERO_WHATSAPP}?text=${mensajeWA}`, '_blank');
+        });
+    </script>
+
+</body>
+</html>
