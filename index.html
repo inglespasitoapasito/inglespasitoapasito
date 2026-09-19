@@ -105,6 +105,59 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Sección Multimedia / Video */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Tarjeta de Vocabulario con Imagen */
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .vocab-card {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+        .vocab-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+
+        /* Sección Juegos */
+        .game-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+            text-align: center;
+            border-top: 4px solid var(--accent);
+        }
+
         /* Botones de Selección */
         .course-tabs {
             display: flex;
@@ -409,10 +462,11 @@
         <a href="#" class="logo">Inglés Pasito a Pasito</a>
         <ul>
             <li><a href="#metodologia">Metodología</a></li>
+            <li><a href="#recursos">Recursos Multimedia</a></li>
+            <li><a href="#juegos">Juegos Interactivos</a></li>
             <li><a href="#modalidades">Modalidades</a></li>
             <li><a href="#nosotros">Nuestra Escuela</a></li>
             <li><a href="#test-nivel">Test de Nivel</a></li>
-            <li><a href="#beneficio">Beneficio Especial</a></li>
             <li><a href="#registro-section">Inscripción</a></li>
         </ul>
     </nav>
@@ -453,325 +507,73 @@
             </div>
         </div>
 
+        <!-- Muestra de Recursos Multimedia (Imágenes y Video) -->
+        <h2 class="section-title" id="recursos">📸 Vocabulario Ilustrado & Video Práctico</h2>
+        <div style="background: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-bottom: 3rem;">
+            <h3 style="color: var(--primary); margin-bottom: 10px;">Vocabulario Visual: Lugares de la Ciudad</h3>
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <img src="https://images.unsplash.com/photo-1543968332-f99478b1ebdc?w=400" alt="Airport">
+                    <strong>Airport</strong>
+                    <p style="font-size: 0.85rem; color: #666;">Aeropuerto</p>
+                </div>
+                <div class="vocab-card">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400" alt="Hotel">
+                    <strong>Hotel</strong>
+                    <p style="font-size: 0.85rem; color: #666;">Hotel</p>
+                </div>
+                <div class="vocab-card">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400" alt="Restaurant">
+                    <strong>Restaurant</strong>
+                    <p style="font-size: 0.85rem; color: #666;">Restaurante</p>
+                </div>
+                <div class="vocab-card">
+                    <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=400" alt="City Street">
+                    <strong>Street</strong>
+                    <p style="font-size: 0.85rem; color: #666;">Calle</p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--primary); margin-top: 25px; margin-bottom: 10px;">🎧 Ejercicio de Escucha (Listening Video)</h3>
+            <p style="color: #555; font-size: 0.95rem;">Mira este video educativo para entrenar la pronunciación básica y frases cotidianas:</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/S45XyI_aX0A" title="Clase de Inglés Básica" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Zona de Juegos Interactivos -->
+        <h2 class="section-title" id="juegos">🎮 Zona de Práctica Interactiva</h2>
+        
+        <!-- JUEGO 1: MEMORIA -->
+        <div class="game-card">
+            <h3 style="color: var(--primary);">🧠 Juego 1: Encuentra las Parejas (Word Match)</h3>
+            <p style="color: #555; margin-bottom: 15px;">Encuentra cada palabra en inglés con su significado en español:</p>
+            <div id="memory-board" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 400px; margin: 0 auto;"></div>
+            <p id="memory-message" style="margin-top: 15px; font-weight: bold; color: green;"></p>
+        </div>
+
+        <!-- JUEGO 2: ORDENAR ORACIÓN -->
+        <div class="game-card">
+            <h3 style="color: var(--primary);">🧩 Juego 2: Construye la Oración</h3>
+            <p style="color: #555;">Toca las palabras en el orden correcto para formar: <em>"Amo aprender inglés pasito a pasito"</em></p>
+            <div id="selected-words" style="min-height: 40px; border-bottom: 2px dashed var(--accent); margin: 15px auto; max-width: 400px; padding: 5px; font-size: 18px; font-weight: bold; color: var(--primary);"></div>
+            <div id="word-buttons" style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;"></div>
+            <div style="margin-top: 15px;">
+                <button onclick="checkSentence()" style="background: var(--primary); color: white; border: none; padding: 8px 16px; border-radius: 5px; font-weight: bold; cursor: pointer;">Comprobar</button>
+                <button onclick="resetSentence()" style="background: #ccc; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer;">Reiniciar</button>
+            </div>
+            <p id="scramble-result" style="margin-top: 10px; font-weight: bold;"></p>
+        </div>
+
+        <!-- JUEGO 3: SPEED VOCABULARY -->
+        <div class="game-card">
+            <h3 style="color: var(--primary);">⚡ Juego 3: Vocabulario Rápido</h3>
+            <p id="vocab-question" style="font-size: 18px; font-weight: bold; color: #333; margin: 15px 0;"></p>
+            <div id="vocab-options" style="display: flex; flex-direction: column; gap: 8px; max-width: 300px; margin: 0 auto;"></div>
+            <p id="vocab-feedback" style="margin-top: 10px; font-weight: bold;"></p>
+        </div>
+
         <!-- Explorador de Modalidades -->
         <h2 class="section-title" id="modalidades">Nuestras Modalidades de Aprendizaje</h2>
         
-        <div class="course-tabs">
-            <button class="tab-btn highlight active" onclick="showCourse('reto', event)">🔥 Reto de Habla (90 Días)</button>
-            <button class="tab-btn" onclick="showCourse('basico', event)">Programa Básico e Intermedio</button>
-            <button class="tab-btn" onclick="showCourse('personalizado', event)">Acompañamiento Personalizado</button>
-        </div>
-
-        <!-- Detalle de Modalidades -->
-        <div id="course-content" class="course-detail reto-border">
-            <!-- Contenido cargado dinámicamente -->
-        </div>
-
-        <!-- Sección: Misión y Visión -->
-        <div class="mission-vision-container" id="nosotros">
-            <h2 style="margin-bottom: 1.5rem; font-size: 1.8rem;">Conoce Nuestra Escuela</h2>
-            
-            <div class="mv-box">
-                <h3>🎯 Nuestra Misión</h3>
-                <p>En <strong>Inglés Pasito a Pasito</strong>, capacitamos a personas de todas las edades a dominar el inglés práctico y conversacional desde cero, eliminando el miedo a hablar mediante una metodología accesible, paso a paso y enfocada en situaciones reales de la vida cotidiana.</p>
-            </div>
-
-            <div class="mv-box">
-                <h3>🚀 Nuestra Visión</h3>
-                <p>Ser la comunidad educativa líder de aprendizaje práctico de inglés en Hispanoamérica, reconocida por transformar la confianza de nuestros estudiantes para que puedan viajar, trabajar y comunicarse libremente en cualquier parte del mundo.</p>
-            </div>
-        </div>
-
-        <!-- Sección: Test de Nivelación Clasificado -->
-        <div class="quiz-container" id="test-nivel">
-            <h2 class="section-title">✍️ Test de Diagnóstico por Niveles</h2>
-            <p style="text-align: center; color: #555;">Responde cada pregunta para evaluar en qué nivel te encuentras actualmente:</p>
-
-            <!-- BÁSICO 1 -->
-            <div class="level-header">Etapa 1: Básico 1</div>
-            <div class="quiz-card">
-                <p>1. ¿Cómo preguntas amablemente "¿Dónde está el baño?" en un establecimiento?</p>
-                <label><input type="radio" name="q1" value="wrong"> A) Where bathroom is?</label>
-                <label><input type="radio" name="q1" value="correct"> B) Where is the restroom?</label>
-                <label><input type="radio" name="q1" value="wrong"> C) Bathroom location please?</label>
-                <button class="btn-check" onclick="checkAnswer('q1', 'correct', 'ans1')">Verificar nivel</button>
-                <p id="ans1" style="font-weight: bold; margin-top: 10px;"></p>
-            </div>
-
-            <!-- BÁSICO 2 -->
-            <div class="level-header">Etapa 2: Básico 2</div>
-            <div class="quiz-card">
-                <p>2. ¿Cómo expresas lo que hiciste ayer por la tarde?</p>
-                <label><input type="radio" name="q2" value="correct"> A) I studied English yesterday afternoon.</label>
-                <label><input type="radio" name="q2" value="wrong"> B) I study English yesterday afternoon.</label>
-                <label><input type="radio" name="q2" value="wrong"> C) I am study English yesterday.</label>
-                <button class="btn-check" onclick="checkAnswer('q2', 'correct', 'ans2')">Verificar nivel</button>
-                <p id="ans2" style="font-weight: bold; margin-top: 10px;"></p>
-            </div>
-
-            <!-- INTERMEDIO 1 -->
-            <div class="level-header">Etapa 3: Intermedio 1</div>
-            <div class="quiz-card">
-                <p>3. ¿Cuál es la forma correcta de hablar de una experiencia vivida hasta el momento?</p>
-                <label><input type="radio" name="q3" value="wrong"> A) I lived in London three years ago.</label>
-                <label><input type="radio" name="q3" value="correct"> B) I have visited three different countries so far.</label>
-                <label><input type="radio" name="q3" value="wrong"> C) I visit three countries so far.</label>
-                <button class="btn-check" onclick="checkAnswer('q3', 'correct', 'ans3')">Verificar nivel</button>
-                <p id="ans3" style="font-weight: bold; margin-top: 10px;"></p>
-            </div>
-
-            <!-- INTERMEDIO 2 -->
-            <div class="level-header">Etapa 4: Intermedio 2</div>
-            <div class="quiz-card">
-                <p>4. ¿Cómo completas la frase: "If it rains tomorrow, we _______ the outdoor class"?</p>
-                <label><input type="radio" name="q4" value="correct"> A) will cancel</label>
-                <label><input type="radio" name="q4" value="wrong"> B) canceled</label>
-                <label><input type="radio" name="q4" value="wrong"> C) would cancel</label>
-                <button class="btn-check" onclick="checkAnswer('q4', 'correct', 'ans4')">Verificar nivel</button>
-                <p id="ans4" style="font-weight: bold; margin-top: 10px;"></p>
-            </div>
-
-            <!-- AVANZADO 1 -->
-            <div class="level-header">Etapa 5: Avanzado 1</div>
-            <div class="quiz-card">
-                <p>5. ¿Cómo expresarías una situación hipotética en el pasado? "If I had practiced more, I _______ the exam."</p>
-                <label><input type="radio" name="q5" value="wrong"> A) will pass</label>
-                <label><input type="radio" name="q5" value="correct"> B) would have passed</label>
-                <label><input type="radio" name="q5" value="wrong"> C) passed</label>
-                <button class="btn-check" onclick="checkAnswer('q5', 'correct', 'ans5')">Verificar nivel</button>
-                <p id="ans5" style="font-weight: bold; margin-top: 10px;"></p>
-            </div>
-
-            <!-- AVANZADO 2 -->
-            <div class="level-header">Etapa 6: Avanzado 2</div>
-            <div class="quiz-card">
-                <p>6. ¿Cuál es la forma más precisa para deducir una acción pasada? "She is not here. She _______ early."</p>
-                <label><input type="radio" name="q6" value="correct"> A) must have left</label>
-                <label><input type="radio" name="q6" value="wrong"> B) leave</label>
-                <label><input type="radio" name="q6" value="wrong"> C) should leave</label>
-                <button class="btn-check" onclick="checkAnswer('q6', 'correct', 'ans6')">Verificar nivel</button>
-                <p id="ans6" style="font-weight: bold; margin-top: 10px;"></p>
-            </div>
-        </div>
-
-        <!-- Sección: Anuncio de Bono Exclusivo -->
-        <div class="pdf-banner" id="beneficio">
-            <span class="badge-gift">⭐ Beneficio Especial por Lanzamiento</span>
-            <h2 style="color: var(--primary); margin-top: 15px; font-size: 1.8rem;">Guía de las 100 Palabras Esenciales en Inglés</h2>
-            <p style="color: #333; font-size: 1.05rem; max-width: 650px; margin: 15px auto;">
-                Recibe de obsequio nuestra <strong>Guía PDF con las 100 palabras clave en inglés</strong> para comunicarte sin trabas. Este beneficio exclusivo está reservado únicamente para las <strong>primeras 5 personas</strong> que completen su inscripción en cualquiera de nuestras modalidades.
-            </p>
-            <a href="#registro-section" style="display: inline-block; background-color: var(--accent); color: white; padding: 0.8rem 1.6rem; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 0.5rem;">Asegurar mi cupo entre las primeras 5 ↓</a>
-        </div>
-
-        <!-- Formulario de Registro -->
-        <div class="register-card" id="registro-section">
-            <h2 class="section-title" style="margin-bottom: 1rem;">Crear Cuenta / Inscribirme</h2>
-            
-            <div id="successMessage" class="alert-success">
-                ¡Cuenta creada con éxito! Tus datos han sido registrados.
-            </div>
-
-            <form id="registerForm">
-                <div class="form-group">
-                    <label for="nombre">Nombre Completo:</label>
-                    <input type="text" id="nombre" placeholder="Ej. Ana López" required>
-                </div>
-                <div class="form-group">
-                    <label for="correo">Correo Electrónico:</label>
-                    <input type="email" id="correo" placeholder="ejemplo@correo.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Contraseña para la plataforma:</label>
-                    <input type="password" id="password" placeholder="Crea tu contraseña" required minlength="6">
-                </div>
-                <div class="form-group">
-                    <label for="celular">Número de Celular / WhatsApp:</label>
-                    <input type="tel" id="celular" placeholder="+51 987654321" required>
-                </div>
-                <div class="form-group">
-                    <label for="cursoSelect">Modalidad o Alternativa elegida:</label>
-                    <select id="cursoSelect" required>
-                        <option value="Reto de Habla (90 Días)">🔥 Reto de Habla - Plan Intensivo 90 Días</option>
-                        <option value="Programa Básico e Intermedio">Programa Básico e Intermedio</option>
-                        <option value="Acompañamiento Personalizado">Acompañamiento Personalizado 1 a 1</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn-submit">Crear Cuenta y Solicitar Cupo</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Banner de Cookies -->
-    <div class="cookie-banner" id="cookieBanner">
-        <span>🍪 Utilizamos cookies para mejorar tu experiencia de navegación en nuestra plataforma.</span>
-        <button class="cookie-btn" onclick="acceptCookies()">Aceptar Cookies</button>
-    </div>
-
-    <a href="https://wa.me/?text=Hola,%20tengo%20una%20consulta%20sobre%20las%20inscripciones%20en%20Inglés%20Pasito%20a%20Pasito." target="_blank" class="whatsapp-float">💬 Ayuda por WhatsApp</a>
-
-    <footer>
-        <p>&copy; 2026 Inglés Pasito a Pasito - Todos los derechos reservados.</p>
-        <p style="margin-top: 8px;">
-            <a href="#">Política de Privacidad</a> | <a href="#">Términos de Servicio</a>
-        </p>
-    </footer>
-
-    <script>
-        const coursesData = {
-            reto: {
-                title: "🔥 Plan Intensivo: Reto de Habla (90 Días)",
-                description: "Un programa acelerado diseñado para llevarte desde las bases hasta hablar con total soltura en solo 3 meses.",
-                isReto: true,
-                roadmap: [
-                    {
-                        month: "Mes 1: Bases y Confianza",
-                        class: "m1",
-                        points: [
-                            "Presentarte con seguridad",
-                            "Pedir información fácilmente",
-                            "Dominar las frases clave del día a día"
-                        ]
-                    },
-                    {
-                        month: "Mes 2: Fluidez Cotidiana",
-                        class: "m2",
-                        points: [
-                            "Expresar tus gustos e intereses",
-                            "Describir tus rutinas diarias",
-                            "Contar experiencias pasadas",
-                            "Mantener conversaciones fluidas"
-                        ]
-                    },
-                    {
-                        month: "Mes 3: Autonomía y Expresión",
-                        class: "m3",
-                        points: [
-                            "Hablar sobre tus planes a futuro",
-                            "Dar opiniones con argumentos",
-                            "Viajar sin depender de un traductor",
-                            "Lograr soltura y naturalidad"
-                        ]
-                    }
-                ],
-                exampleTitle: "🎯 Resultado Garantizado:",
-                exampleText: "En 90 días lograrás hablar inglés de forma natural sin quedarte en blanco ni traducir mentalmente cada palabra."
-            },
-            basico: {
-                title: "Programa Básico e Intermedio",
-                description: "Paso a paso desde los fundamentos hasta construir conversaciones completas en situaciones cotidianas, laborales y de viaje.",
-                exampleTitle: "💡 Ejemplo práctico de lo que aprenderás:",
-                exampleText: "<strong>Expresar planes y experiencias:</strong><br>'I have been studying English step by step, and now I can hold a conversation.'<br><em>(He estado estudiando inglés pasito a pasito y ahora puedo mantener una conversación).</em>"
-            },
-            personalizado: {
-                title: "Acompañamiento Personalizado 1 a 1",
-                description: "Diseñado a la medida de tus metas específicas: preparación para entrevistas laborales, viajes inmediatos o práctica intensiva de conversación.",
-                exampleTitle: "💡 Ejemplo práctico de lo que aprenderás:",
-                exampleText: "<strong>Enfoque directo a tu objetivo:</strong><br>'Could you tell me more about the responsibilities of this position?'<br><em>(¿Podría decirme más sobre las responsabilidades de este puesto?)</em>"
-            }
-        };
-
-        function showCourse(courseKey, evt) {
-            const course = coursesData[courseKey];
-            const contentDiv = document.getElementById('course-content');
-            
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            if(evt) evt.target.classList.add('active');
-
-            if(course.isReto) {
-                contentDiv.className = "course-detail reto-border";
-                let roadmapHTML = '<div class="roadmap-grid">';
-                course.roadmap.forEach(m => {
-                    roadmapHTML += `
-                        <div class="month-card ${m.class}">
-                            <h4>${m.month}</h4>
-                            <ul>
-                                ${m.points.map(p => `<li>${p}</li>`).join('')}
-                            </ul>
-                        </div>
-                    `;
-                });
-                roadmapHTML += '</div>';
-
-                contentDiv.innerHTML = `
-                    <h3>${course.title}</h3>
-                    <p>${course.description}</p>
-                    ${roadmapHTML}
-                    <div class="example-box">
-                        <h4>${course.exampleTitle}</h4>
-                        <p>${course.exampleText}</p>
-                    </div>
-                    <a href="#registro-section" onclick="selectInForm('Reto de Habla (90 Días)')" style="display:inline-block; background-color: var(--accent); color: white; padding: 0.8rem 1.4rem; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 0.5rem;">Unirme al Reto de Habla ↓</a>
-                `;
-            } else {
-                contentDiv.className = "course-detail";
-                contentDiv.innerHTML = `
-                    <h3>${course.title}</h3>
-                    <p>${course.description}</p>
-                    <div class="example-box">
-                        <h4>${course.exampleTitle}</h4>
-                        <p>${course.exampleText}</p>
-                    </div>
-                    <a href="#registro-section" onclick="selectInForm('${course.title}')" style="display:inline-block; background-color: var(--primary); color: white; padding: 0.6rem 1.2rem; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 0.5rem;">Elegir esta modalidad ↓</a>
-                `;
-            }
-        }
-
-        function selectInForm(val) {
-            const select = document.getElementById('cursoSelect');
-            for(let i=0; i<select.options.length; i++) {
-                if(select.options[i].text.includes(val) || select.options[i].value.includes(val)) {
-                    select.selectedIndex = i;
-                    break;
-                }
-            }
-        }
-
-        function checkAnswer(questionName, correctAnswer, resultId) {
-            const options = document.getElementsByName(questionName);
-            let selectedValue = "";
-            for (const option of options) {
-                if (option.checked) {
-                    selectedValue = option.value;
-                }
-            }
-            const resultElement = document.getElementById(resultId);
-            if (selectedValue === correctAnswer) {
-                resultElement.innerText = "¡Correcto! 🎉 Domina esta respuesta.";
-                resultElement.style.color = "green";
-            } else if (selectedValue === "") {
-                resultElement.innerText = "Por favor selecciona una opción.";
-                resultElement.style.color = "orange";
-            } else {
-                resultElement.innerText = "Incorrecto ❌ Inténtalo de nuevo.";
-                resultElement.style.color = "red";
-            }
-        }
-
-        function acceptCookies() {
-            document.getElementById('cookieBanner').style.display = 'none';
-        }
-
-        showCourse('reto');
-
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const nombre = document.getElementById('nombre').value;
-            const correo = document.getElementById('correo').value;
-            const celular = document.getElementById('celular').value;
-            const curso = document.getElementById('cursoSelect').value;
-
-            document.getElementById('successMessage').style.display = 'block';
-
-            const mensajeWA = `Hola,%20acabo%20de%20registrarme%20en%20la%20página%20web.%0A%0A*Nombre:*%20${encodeURIComponent(nombre)}%0A*Correo:*%20${encodeURIComponent(correo)}%0A*Celular:*%20${encodeURIComponent(celular)}%0A*Modalidad:*%20${encodeURIComponent(curso)}`;
-            
-            setTimeout(() => {
-                window.open(`https://wa.me/?text=${mensajeWA}`, '_blank');
-            }, 1000);
-        });
-    </script>
-
-</body>
-</html>
+     
