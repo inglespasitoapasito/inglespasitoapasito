@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inglés Pasito a Pasito - Plataforma de Cursos</title>
+    <title>Inglés Pasito a Pasito - Escuela de Idiomas</title>
     <style>
         :root {
             --primary: #002573;
@@ -23,24 +23,59 @@
             color: var(--dark);
             line-height: 1.6;
         }
+        /* Navegación Principal */
+        nav {
+            background-color: var(--primary);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+        nav .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.3rem;
+            text-decoration: none;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #ffa4b1;
+        }
+
         header {
             background-color: var(--primary);
             color: var(--white);
             text-align: center;
-            padding: 2.5rem 1rem;
+            padding: 3rem 1rem;
             border-bottom: 5px solid var(--accent);
         }
         header h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             margin-bottom: 0.5rem;
         }
         header p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             opacity: 0.9;
         }
+
         .container {
             max-width: 950px;
-            margin: 2rem auto;
+            margin: 2.5rem auto;
             padding: 0 1rem;
         }
         .section-title {
@@ -50,7 +85,27 @@
             font-size: 1.8rem;
         }
 
-        /* Botones de Selección de Cursos */
+        /* Estructura de Unidades Pedagógicas */
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .methodology-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--primary);
+        }
+        .methodology-card h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Botones de Selección */
         .course-tabs {
             display: flex;
             justify-content: center;
@@ -81,7 +136,7 @@
             color: white;
         }
 
-        /* Detalle del Curso Seleccionado */
+        /* Detalle del Programa Seleccionado */
         .course-detail {
             background: white;
             border-radius: 10px;
@@ -145,12 +200,8 @@
             margin: 1rem 0;
             border-radius: 4px;
         }
-        .example-box h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
 
-        /* Estilos Misión y Visión */
+        /* Misión y Visión */
         .mission-vision-container {
             background-color: var(--primary);
             color: white;
@@ -177,7 +228,7 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Estilos Cuestionario */
+        /* Cuestionario por Niveles */
         .quiz-container {
             background: white;
             border-radius: 10px;
@@ -185,12 +236,22 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             margin-bottom: 3rem;
         }
+        .level-header {
+            background: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 1rem;
+            margin-top: 1.5rem;
+            display: inline-block;
+            font-weight: bold;
+        }
         .quiz-card {
             background: #f8f9fa;
             border: 1px solid #ddd;
             border-radius: 8px;
             padding: 1.2rem;
-            margin-top: 1.2rem;
+            margin-top: 0.8rem;
         }
         .quiz-card p {
             font-weight: bold;
@@ -213,7 +274,7 @@
             font-weight: bold;
         }
 
-        /* Estilos Banner PDF */
+        /* Anuncio Bono Exclusivo */
         .pdf-banner {
             background: #FFF0F0;
             border: 2px dashed var(--accent);
@@ -230,22 +291,6 @@
             font-weight: bold;
             font-size: 0.85rem;
             text-transform: uppercase;
-        }
-        .btn-pdf {
-            background: var(--accent);
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            display: inline-block;
-            margin-top: 15px;
-            box-shadow: 0 4px 10px rgba(217, 20, 56, 0.3);
-            transition: transform 0.2s ease;
-        }
-        .btn-pdf:hover {
-            transform: translateY(-2px);
         }
 
         /* Formulario de Registro */
@@ -290,7 +335,6 @@
             background-color: #b0102d;
         }
 
-        /* Mensaje de Confirmación */
         .alert-success {
             display: none;
             background-color: #d4edda;
@@ -302,10 +346,37 @@
             text-align: center;
         }
 
-        /* Botón flotante de WhatsApp */
+        /* Banner de Cookies Flotante */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--dark);
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+            z-index: 2000;
+            font-size: 0.9rem;
+        }
+        .cookie-btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
         .whatsapp-float {
             position: fixed;
-            bottom: 20px;
+            bottom: 70px;
             right: 20px;
             background-color: #25d366;
             color: white;
@@ -318,15 +389,33 @@
         }
         footer {
             text-align: center;
-            padding: 1.5rem;
+            padding: 2rem 1rem;
             background-color: var(--primary);
             color: white;
             margin-top: 2rem;
             font-size: 0.9rem;
         }
+        footer a {
+            color: #a0c4ff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
     </style>
 </head>
 <body>
+
+    <!-- Menú de Navegación -->
+    <nav>
+        <a href="#" class="logo">Inglés Pasito a Pasito</a>
+        <ul>
+            <li><a href="#metodologia">Metodología</a></li>
+            <li><a href="#modalidades">Modalidades</a></li>
+            <li><a href="#nosotros">Nuestra Escuela</a></li>
+            <li><a href="#test-nivel">Test de Nivel</a></li>
+            <li><a href="#beneficio">Beneficio Especial</a></li>
+            <li><a href="#registro-section">Inscripción</a></li>
+        </ul>
+    </nav>
 
     <header>
         <h1>Inglés Pasito a Pasito</h1>
@@ -334,23 +423,52 @@
     </header>
 
     <div class="container">
-        <!-- Explorador de Cursos -->
-        <h2 class="section-title">Explora Nuestros Programas y Cursos</h2>
+        
+        <!-- Estructura de Aprendizaje por Unidad -->
+        <h2 class="section-title" id="metodologia">Nuestra Estructura de Aprendizaje</h2>
+        <div class="methodology-grid">
+            <div class="methodology-card">
+                <h3>🎮 1. Inicio (Start)</h3>
+                <p>Presentación de la unidad con objetivos claros, juegos e introducciones dinámicas al tema.</p>
+            </div>
+            <div class="methodology-card">
+                <h3>📚 2. Gramática (Grammar)</h3>
+                <p>Explicaciones sencillas de reglas, patrones de oraciones (Sujeto + Verbo + Objeto) y tablas de tiempos verbales.</p>
+            </div>
+            <div class="methodology-card">
+                <h3>🗣️ 3. Vocabulario (Vocabulary)</h3>
+                <p>Listas de palabras nuevas temáticas acompañadas de imágenes, audios y ejemplos de uso en contexto real.</p>
+            </div>
+            <div class="methodology-card">
+                <h3>📖 4. Comprensión Lectora (Reading)</h3>
+                <p>Textos adaptados al nivel del alumno para analizar el idioma en su forma escrita.</p>
+            </div>
+            <div class="methodology-card">
+                <h3>🎧 5. Comprensión Auditiva (Listening)</h3>
+                <p>Audios, canciones o videos cortos con ejercicios para entrenar el oído con acentos nativos.</p>
+            </div>
+            <div class="methodology-card">
+                <h3>✍️ 6. Práctica y Evaluación (Quiz/Testing)</h3>
+                <p>Cuestionarios interactivos, retroalimentación inmediata y seguimiento del progreso por niveles (A1 a C1).</p>
+            </div>
+        </div>
+
+        <!-- Explorador de Modalidades -->
+        <h2 class="section-title" id="modalidades">Nuestras Modalidades de Aprendizaje</h2>
         
         <div class="course-tabs">
             <button class="tab-btn highlight active" onclick="showCourse('reto', event)">🔥 Reto de Habla (90 Días)</button>
-            <button class="tab-btn" onclick="showCourse('basico', event)">Inglés Básico</button>
-            <button class="tab-btn" onclick="showCourse('intermedio', event)">Inglés Intermedio</button>
-            <button class="tab-btn" onclick="showCourse('personalizado', event)">Clases Personalizadas</button>
+            <button class="tab-btn" onclick="showCourse('basico', event)">Programa Básico e Intermedio</button>
+            <button class="tab-btn" onclick="showCourse('personalizado', event)">Acompañamiento Personalizado</button>
         </div>
 
-        <!-- Detalle de Cursos -->
+        <!-- Detalle de Modalidades -->
         <div id="course-content" class="course-detail reto-border">
-            <!-- El contenido interactivo se carga dinámicamente -->
+            <!-- Contenido cargado dinámicamente -->
         </div>
 
         <!-- Sección: Misión y Visión -->
-        <div class="mission-vision-container">
+        <div class="mission-vision-container" id="nosotros">
             <h2 style="margin-bottom: 1.5rem; font-size: 1.8rem;">Conoce Nuestra Escuela</h2>
             
             <div class="mv-box">
@@ -364,48 +482,94 @@
             </div>
         </div>
 
-        <!-- Sección: Cuestionario Interactivo -->
-        <div class="quiz-container">
-            <h2 class="section-title">✍️ Pon a prueba tu Inglés en el Aeropuerto</h2>
-            <p style="text-align: center; color: #555;">Selecciona la respuesta correcta para continuar:</p>
+        <!-- Sección: Test de Nivelación Clasificado -->
+        <div class="quiz-container" id="test-nivel">
+            <h2 class="section-title">✍️ Test de Diagnóstico por Niveles</h2>
+            <p style="text-align: center; color: #555;">Responde cada pregunta para evaluar en qué nivel te encuentras actualmente:</p>
 
-            <!-- Pregunta 1 -->
+            <!-- BÁSICO 1 -->
+            <div class="level-header">Etapa 1: Básico 1</div>
             <div class="quiz-card">
-                <p>1. ¿Cómo preguntas "¿Dónde está la puerta 5?" en un aeropuerto?</p>
-                <label><input type="radio" name="q1" value="wrong"> A) Where is gate 5 located please?</label>
-                <label><input type="radio" name="q1" value="correct"> B) Where is gate 5?</label>
-                <label><input type="radio" name="q1" value="wrong"> C) How reach gate 5?</label>
-                <button class="btn-check" onclick="checkAnswer('q1', 'correct', 'ans1')">Verificar respuesta</button>
+                <p>1. ¿Cómo preguntas amablemente "¿Dónde está el baño?" en un establecimiento?</p>
+                <label><input type="radio" name="q1" value="wrong"> A) Where bathroom is?</label>
+                <label><input type="radio" name="q1" value="correct"> B) Where is the restroom?</label>
+                <label><input type="radio" name="q1" value="wrong"> C) Bathroom location please?</label>
+                <button class="btn-check" onclick="checkAnswer('q1', 'correct', 'ans1')">Verificar nivel</button>
                 <p id="ans1" style="font-weight: bold; margin-top: 10px;"></p>
             </div>
 
-            <!-- Pregunta 2 -->
+            <!-- BÁSICO 2 -->
+            <div class="level-header">Etapa 2: Básico 2</div>
             <div class="quiz-card">
-                <p>2. Si necesitas pedir ayuda con tu equipaje, ¿cuál es la frase adecuada?</p>
-                <label><input type="radio" name="q2" value="wrong"> A) Help my bag now.</label>
-                <label><input type="radio" name="q2" value="correct"> B) Could you help me with my bag?</label>
-                <label><input type="radio" name="q2" value="wrong"> C) Can bag take me?</label>
-                <button class="btn-check" onclick="checkAnswer('q2', 'correct', 'ans2')">Verificar respuesta</button>
+                <p>2. ¿Cómo expresas lo que hiciste ayer por la tarde?</p>
+                <label><input type="radio" name="q2" value="correct"> A) I studied English yesterday afternoon.</label>
+                <label><input type="radio" name="q2" value="wrong"> B) I study English yesterday afternoon.</label>
+                <label><input type="radio" name="q2" value="wrong"> C) I am study English yesterday.</label>
+                <button class="btn-check" onclick="checkAnswer('q2', 'correct', 'ans2')">Verificar nivel</button>
                 <p id="ans2" style="font-weight: bold; margin-top: 10px;"></p>
+            </div>
+
+            <!-- INTERMEDIO 1 -->
+            <div class="level-header">Etapa 3: Intermedio 1</div>
+            <div class="quiz-card">
+                <p>3. ¿Cuál es la forma correcta de hablar de una experiencia vivida hasta el momento?</p>
+                <label><input type="radio" name="q3" value="wrong"> A) I lived in London three years ago.</label>
+                <label><input type="radio" name="q3" value="correct"> B) I have visited three different countries so far.</label>
+                <label><input type="radio" name="q3" value="wrong"> C) I visit three countries so far.</label>
+                <button class="btn-check" onclick="checkAnswer('q3', 'correct', 'ans3')">Verificar nivel</button>
+                <p id="ans3" style="font-weight: bold; margin-top: 10px;"></p>
+            </div>
+
+            <!-- INTERMEDIO 2 -->
+            <div class="level-header">Etapa 4: Intermedio 2</div>
+            <div class="quiz-card">
+                <p>4. ¿Cómo completas la frase: "If it rains tomorrow, we _______ the outdoor class"?</p>
+                <label><input type="radio" name="q4" value="correct"> A) will cancel</label>
+                <label><input type="radio" name="q4" value="wrong"> B) canceled</label>
+                <label><input type="radio" name="q4" value="wrong"> C) would cancel</label>
+                <button class="btn-check" onclick="checkAnswer('q4', 'correct', 'ans4')">Verificar nivel</button>
+                <p id="ans4" style="font-weight: bold; margin-top: 10px;"></p>
+            </div>
+
+            <!-- AVANZADO 1 -->
+            <div class="level-header">Etapa 5: Avanzado 1</div>
+            <div class="quiz-card">
+                <p>5. ¿Cómo expresarías una situación hipotética en el pasado? "If I had practiced more, I _______ the exam."</p>
+                <label><input type="radio" name="q5" value="wrong"> A) will pass</label>
+                <label><input type="radio" name="q5" value="correct"> B) would have passed</label>
+                <label><input type="radio" name="q5" value="wrong"> C) passed</label>
+                <button class="btn-check" onclick="checkAnswer('q5', 'correct', 'ans5')">Verificar nivel</button>
+                <p id="ans5" style="font-weight: bold; margin-top: 10px;"></p>
+            </div>
+
+            <!-- AVANZADO 2 -->
+            <div class="level-header">Etapa 6: Avanzado 2</div>
+            <div class="quiz-card">
+                <p>6. ¿Cuál es la forma más precisa para deducir una acción pasada? "She is not here. She _______ early."</p>
+                <label><input type="radio" name="q6" value="correct"> A) must have left</label>
+                <label><input type="radio" name="q6" value="wrong"> B) leave</label>
+                <label><input type="radio" name="q6" value="wrong"> C) should leave</label>
+                <button class="btn-check" onclick="checkAnswer('q6', 'correct', 'ans6')">Verificar nivel</button>
+                <p id="ans6" style="font-weight: bold; margin-top: 10px;"></p>
             </div>
         </div>
 
-        <!-- Sección: Regalo PDF -->
-        <div class="pdf-banner">
-            <span class="badge-gift">🎁 Regalo Exclusivo</span>
-            <h2 style="color: var(--primary); margin-top: 15px; font-size: 1.8rem;">Guía PDF de Vocabulario y Frases Imprescindibles</h2>
-            <p style="color: #333; font-size: 1rem; max-width: 600px; margin: 10px auto 20px auto;">
-                ¡Lleva contigo las frases clave para viajar, comprar y comunicarte sin trabas! Descarga gratis nuestro PDF de bolsillo diseñado especialmente para principiantes.
+        <!-- Sección: Anuncio de Bono Exclusivo -->
+        <div class="pdf-banner" id="beneficio">
+            <span class="badge-gift">⭐ Beneficio Especial por Lanzamiento</span>
+            <h2 style="color: var(--primary); margin-top: 15px; font-size: 1.8rem;">Guía de las 100 Palabras Esenciales en Inglés</h2>
+            <p style="color: #333; font-size: 1.05rem; max-width: 650px; margin: 15px auto;">
+                Recibe de obsequio nuestra <strong>Guía PDF con las 100 palabras clave en inglés</strong> para comunicarte sin trabas. Este beneficio exclusivo está reservado únicamente para las <strong>primeras 5 personas</strong> que completen su inscripción en cualquiera de nuestras modalidades.
             </p>
-            <a href="#" class="btn-pdf">📥 Descargar Mi Guía Gratuita</a>
+            <a href="#registro-section" style="display: inline-block; background-color: var(--accent); color: white; padding: 0.8rem 1.6rem; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 0.5rem;">Asegurar mi cupo entre las primeras 5 ↓</a>
         </div>
 
-        <!-- Formulario de Registro de Usuario -->
+        <!-- Formulario de Registro -->
         <div class="register-card" id="registro-section">
             <h2 class="section-title" style="margin-bottom: 1rem;">Crear Cuenta / Inscribirme</h2>
             
             <div id="successMessage" class="alert-success">
-                ¡Cuenta creada con éxito! Tus datos de inscripción han sido registrados.
+                ¡Cuenta creada con éxito! Tus datos han sido registrados.
             </div>
 
             <form id="registerForm">
@@ -426,23 +590,31 @@
                     <input type="tel" id="celular" placeholder="+51 987654321" required>
                 </div>
                 <div class="form-group">
-                    <label for="cursoSelect">Curso o Plan a elegir:</label>
+                    <label for="cursoSelect">Modalidad o Alternativa elegida:</label>
                     <select id="cursoSelect" required>
                         <option value="Reto de Habla (90 Días)">🔥 Reto de Habla - Plan Intensivo 90 Días</option>
-                        <option value="Inglés Básico">Inglés Inicial / Básico</option>
-                        <option value="Inglés Intermedio">Inglés Intermedio</option>
-                        <option value="Clases Personalizadas">Clases Personalizadas 1 a 1</option>
+                        <option value="Programa Básico e Intermedio">Programa Básico e Intermedio</option>
+                        <option value="Acompañamiento Personalizado">Acompañamiento Personalizado 1 a 1</option>
                     </select>
                 </div>
-                <button type="submit" class="btn-submit">Crear Cuenta y Finalizar Registro</button>
+                <button type="submit" class="btn-submit">Crear Cuenta y Solicitar Cupo</button>
             </form>
         </div>
+    </div>
+
+    <!-- Banner de Cookies -->
+    <div class="cookie-banner" id="cookieBanner">
+        <span>🍪 Utilizamos cookies para mejorar tu experiencia de navegación en nuestra plataforma.</span>
+        <button class="cookie-btn" onclick="acceptCookies()">Aceptar Cookies</button>
     </div>
 
     <a href="https://wa.me/?text=Hola,%20tengo%20una%20consulta%20sobre%20las%20inscripciones%20en%20Inglés%20Pasito%20a%20Pasito." target="_blank" class="whatsapp-float">💬 Ayuda por WhatsApp</a>
 
     <footer>
         <p>&copy; 2026 Inglés Pasito a Pasito - Todos los derechos reservados.</p>
+        <p style="margin-top: 8px;">
+            <a href="#">Política de Privacidad</a> | <a href="#">Términos de Servicio</a>
+        </p>
     </footer>
 
     <script>
@@ -486,22 +658,16 @@
                 exampleText: "En 90 días lograrás hablar inglés de forma natural sin quedarte en blanco ni traducir mentalmente cada palabra."
             },
             basico: {
-                title: "Curso: Inglés Inicial / Básico",
-                description: "Ideal para quienes empiezan desde cero. Aprenderás a presentarte, hacer preguntas básicas y construir oraciones cotidianas.",
+                title: "Programa Básico e Intermedio",
+                description: "Paso a paso desde los fundamentos hasta construir conversaciones completas en situaciones cotidianas, laborales y de viaje.",
                 exampleTitle: "💡 Ejemplo práctico de lo que aprenderás:",
-                exampleText: "<strong>Presentación personal:</strong><br>'Hello! My name is Ana. I am learning English step by step.'<br><em>(¡Hola! Mi nombre es Ana. Estoy aprendiendo inglés pasito a pasito).</em>"
-            },
-            intermedio: {
-                title: "Curso: Inglés Intermedio",
-                description: "Enfocado en soltar la lengua, mejorar tu pronunciación y expresarte en pasado, presente y futuro con fluidez.",
-                exampleTitle: "💡 Ejemplo práctico de lo que aprenderás:",
-                exampleText: "<strong>Expresar planes y experiencias:</strong><br>'I have been studying English for three months, and now I can hold a conversation.'<br><em>(He estado estudiando inglés por tres meses y ahora puedo mantener una conversación).</em>"
+                exampleText: "<strong>Expresar planes y experiencias:</strong><br>'I have been studying English step by step, and now I can hold a conversation.'<br><em>(He estado estudiando inglés pasito a pasito y ahora puedo mantener una conversación).</em>"
             },
             personalizado: {
-                title: "Clases Personalizadas 1 a 1",
-                description: "Diseñadas a la medida de tus metas: preparación para entrevistas de trabajo, viajes, exámenes o conversación acelerada.",
+                title: "Acompañamiento Personalizado 1 a 1",
+                description: "Diseñado a la medida de tus metas específicas: preparación para entrevistas laborales, viajes inmediatos o práctica intensiva de conversación.",
                 exampleTitle: "💡 Ejemplo práctico de lo que aprenderás:",
-                exampleText: "<strong>Entrevista laboral / Trabajo:</strong><br>'Could you tell me more about the responsibilities of this position?'<br><em>(¿Podría decirme más sobre las responsabilidades de este puesto?)</em>"
+                exampleText: "<strong>Enfoque directo a tu objetivo:</strong><br>'Could you tell me more about the responsibilities of this position?'<br><em>(¿Podría decirme más sobre las responsabilidades de este puesto?)</em>"
             }
         };
 
@@ -509,7 +675,6 @@
             const course = coursesData[courseKey];
             const contentDiv = document.getElementById('course-content');
             
-            // Actualizar pestaña activa
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
             if(evt) evt.target.classList.add('active');
@@ -548,7 +713,7 @@
                         <h4>${course.exampleTitle}</h4>
                         <p>${course.exampleText}</p>
                     </div>
-                    <a href="#registro-section" onclick="selectInForm('${course.title}')" style="display:inline-block; background-color: var(--primary); color: white; padding: 0.6rem 1.2rem; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 0.5rem;">Inscribirme en este curso ↓</a>
+                    <a href="#registro-section" onclick="selectInForm('${course.title}')" style="display:inline-block; background-color: var(--primary); color: white; padding: 0.6rem 1.2rem; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 0.5rem;">Elegir esta modalidad ↓</a>
                 `;
             }
         }
@@ -563,7 +728,6 @@
             }
         }
 
-        // Lógica del cuestionario interactivo
         function checkAnswer(questionName, correctAnswer, resultId) {
             const options = document.getElementsByName(questionName);
             let selectedValue = "";
@@ -574,7 +738,7 @@
             }
             const resultElement = document.getElementById(resultId);
             if (selectedValue === correctAnswer) {
-                resultElement.innerText = "¡Correcto! 🎉 Excelente elección.";
+                resultElement.innerText = "¡Correcto! 🎉 Domina esta respuesta.";
                 resultElement.style.color = "green";
             } else if (selectedValue === "") {
                 resultElement.innerText = "Por favor selecciona una opción.";
@@ -585,10 +749,12 @@
             }
         }
 
-        // Cargar por defecto el Reto de Habla
+        function acceptCookies() {
+            document.getElementById('cookieBanner').style.display = 'none';
+        }
+
         showCourse('reto');
 
-        // Procesar Formulario de Registro
         document.getElementById('registerForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -597,11 +763,9 @@
             const celular = document.getElementById('celular').value;
             const curso = document.getElementById('cursoSelect').value;
 
-            // Mostrar mensaje de éxito en pantalla
             document.getElementById('successMessage').style.display = 'block';
 
-            // Generar mensaje para confirmar registro vía WhatsApp
-            const mensajeWA = `Hola,%20acabo%20de%20crear%20mi%20cuenta%20en%20la%20página%20web.%0A%0A*Nombre:*%20${encodeURIComponent(nombre)}%0A*Correo:*%20${encodeURIComponent(correo)}%0A*Celular:*%20${encodeURIComponent(celular)}%0A*Plan/Curso:*%20${encodeURIComponent(curso)}`;
+            const mensajeWA = `Hola,%20acabo%20de%20registrarme%20en%20la%20página%20web.%0A%0A*Nombre:*%20${encodeURIComponent(nombre)}%0A*Correo:*%20${encodeURIComponent(correo)}%0A*Celular:*%20${encodeURIComponent(celular)}%0A*Modalidad:*%20${encodeURIComponent(curso)}`;
             
             setTimeout(() => {
                 window.open(`https://wa.me/?text=${mensajeWA}`, '_blank');
